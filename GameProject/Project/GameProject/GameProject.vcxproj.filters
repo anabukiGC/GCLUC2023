@@ -3,4 +3,12 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Game">
+      <UniqueIdentifier>{29fff7c6-e324-4379-85f3-4039c3c7c48b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base">
+      <UniqueIdentifier>{a22db99b-663e-49ea-9928-a006e5d6a4ce}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
 </Project>
