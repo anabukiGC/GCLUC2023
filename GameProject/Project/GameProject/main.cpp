@@ -2,16 +2,22 @@
 #define SCREEN_WIDTH 1920
 #define SCREEN_HEIGHT 1080
 
-
+#include"Game/AnimData.h"
+#include "Game/Player.h"
+#include "Game/Field.h"
+#include "Base/Base.h"
 
 //--------------------------------------------
 //グローバル変数領域
 //-------------------------------------------
 
-CImage img;
 void MainLoop(void) {
 
-	img.Draw();
+	Base::CheckKillAll();
+	Base::UpdateAll();
+	Base::CollisionAll();
+	Base::DrawAll();
+
 
 }
 
@@ -82,10 +88,11 @@ void Init(void)
 	//初期化の命令を書く
 	//ゲーム起動時に一度だけ呼ばれる
 	//-----------------------------------------------------
-	ADD_RESOURCE("Anatora", CImage::CreateImage("anatora.png"));
-
-	img = COPY_RESOURCE("Anatora",CImage);
-
+	ADD_RESOURCE("Town", CImage::CreateImage("Image/pik.png"));
+	ADD_RESOURCE("ForeGround", CImage::CreateImage("Image/piy.png"));
+	ADD_RESOURCE("Player", CImage::CreateImage("Image/running.png", player_anim_data, 267, 450));
+	Base::Add(new Player(CVector2D(200, 500), false));
+	Base::Add(new Field());
 
 
 
