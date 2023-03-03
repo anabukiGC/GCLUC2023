@@ -2,7 +2,9 @@
 #include<GLLibrary.h>
 //d—Í‰Á‘¬“x
 #define GRAVITY (9.8f/20)
-enum {
+#define Z_MIN (0)
+#define Z_MAX (400)
+enum { 
 	eType_Field,
     eType_Player,
     eType_UI,

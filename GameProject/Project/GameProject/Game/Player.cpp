@@ -12,7 +12,7 @@ Player::Player(const CVector2D& p, bool flip):
 		//m_pos_old = m_pos = p ;
 		m_pos = p ;
 		//中心位置設定
-		m_img.SetCenter(128, 224);
+		m_img.SetCenter(267/2, 450);
 		//反転フラグ
 		m_flip = flip;
 		//矩形判定の設定
@@ -32,13 +32,39 @@ Player::Player(const CVector2D& p, bool flip):
 
 void Player::Update()
 {
+	static int move_speed = 6;
+	static int jump_pow = 15;
 	//m_pos_old = m_pos;
-	m_pos.x += 6;
+	m_pos.x += move_speed;
+	//移動
+	if (HOLD(CInput::eRight))
+		m_pos.x += move_speed;
+	else if (HOLD(CInput::eLeft))
+		m_pos.x -= move_speed;
+	if (HOLD(CInput::eUp)) {
+		m_pos.z += move_speed;
+	}
+	else if (HOLD(CInput::eDown)) {
+		m_pos.z -= move_speed;
+	}
+	//ジャンプ
+	if (PUSH(CInput::eButton5))
+		m_vec.y = -jump_pow;
 	m_img.ChangeAnimation(eAnimRun);
 		//アニメーション更新
 	m_img.UpdateAnimation();
 	//スクロール設定
-	m_scroll.x = m_pos.x - 1280 / 2;
+	m_scroll.x += move_speed;
+	m_vec.y += GRAVITY;
+	m_pos += m_vec;
+	if (m_pos.y > 0) {
+		m_pos.y = 0;
+		m_vec.y = 0;
+	}
+	if (m_pos.z > Z_MAX)
+		m_pos.z = Z_MAX;
+	if (m_pos.z < Z_MIN)
+		m_pos.z = Z_MIN;
 }
 
 void Player::Draw()
