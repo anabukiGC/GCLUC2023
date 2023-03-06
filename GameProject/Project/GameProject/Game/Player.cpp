@@ -61,6 +61,10 @@ void Player::Update()
 		m_pos.y = 0;
 		m_vec.y = 0;
 	}
+	if (m_scroll.x+X_MIN > m_pos.x)
+		m_pos.x = m_scroll.x+X_MIN;
+	if (m_scroll.x+X_MAX <m_pos.x )
+		m_pos.x = m_scroll.x+X_MAX;
 	if (m_pos.z > Z_MAX)
 		m_pos.z = Z_MAX;
 	if (m_pos.z < Z_MIN)

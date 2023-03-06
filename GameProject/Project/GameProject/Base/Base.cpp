@@ -46,7 +46,7 @@ void Base::DrawRect()
 }
 CVector2D Base::GetScreenPos(const CVector3D& pos) {
 	//座標ースクロール値＝画面上での位置
-	return CVector2D(pos.x+pos.z/2,pos.y-pos.z/2+1040) - m_scroll;
+	return CVector2D(pos.x+pos.z/2+720,pos.y-pos.z/2+1040) - m_scroll;
 }
 
 bool Base::CollisionCircle(Base* b1, Base* b2)

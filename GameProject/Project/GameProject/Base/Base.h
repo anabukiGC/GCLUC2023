@@ -2,6 +2,8 @@
 #include<GLLibrary.h>
 //èdóÕâ¡ë¨ìx
 #define GRAVITY (9.8f/20)
+#define X_MIN (-640)
+#define X_MAX (900/2)
 #define Z_MIN (0)
 #define Z_MAX (400)
 enum { 
