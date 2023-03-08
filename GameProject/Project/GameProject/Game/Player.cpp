@@ -16,6 +16,8 @@ Player::Player(const CVector3D& p, bool flip)
 		m_img.SetCenter(267/2, 450);
 		//反転フラグ
 		m_flip = flip;
+		//箱形判定の設定
+		m_box = CAABB(CVector3D(0,0,0),CVector3D(10,10,10));
 		//矩形判定の設定
 		//m_rect = CRect(-32, -128, 32, 0);
 		//通常状態へ

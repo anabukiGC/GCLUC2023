@@ -34,7 +34,7 @@ public:
 	static std::list<Base*>m_list;
 	//’ZŒ`
 	//CRect m_rect;
-	//” Œ^
+	//” Œ`
 	CAABB m_box;
 
 public:

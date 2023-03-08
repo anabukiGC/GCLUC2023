@@ -88,6 +88,23 @@ void Base::Collision(Base* b)
 }
 bool Base::CollisionAABB(Base* b1, Base* b2)
 {
+	//b1‚Ì” Œ`
+	CAABB box1 =CAABB(
+		CVector3D(b1->m_pos.x+b1->m_box.min.x,b1->m_pos.y+b1->m_box.min.y,b1->m_pos.z+b1->m_box.min.z),
+		CVector3D(b1->m_pos.x+b1->m_box.max.x,b1->m_pos.y+b1->m_box.max.y,b1->m_pos.z+b1->m_box.max.z)
+	);
+	//b2‚Ì” Œ`
+	CAABB box2 = CAABB(
+		CVector3D(b2->m_pos.x + b2->m_box.min.x, b2->m_pos.y + b2->m_box.min.y, b2->m_pos.z + b2->m_box.min.z),
+		CVector3D(b2->m_pos.x + b2->m_box.max.x, b2->m_pos.y + b2->m_box.max.y, b2->m_pos.z + b2->m_box.max.z)
+	);
+
+	//” Œ`“¯Žm‚Ì”»’è
+	if ((box1.min.x <= box2.max.x && box1.max.x >= box2.min.x) &&
+		(box1.min.y <= box2.max.y && box1.max.y >= box2.min.y) &&
+		(box1.min.z <= box2.max.z && box1.max.z >= box2.min.z))
+		return true;
+
 	return false;
 }
 void Base::Draw() {
