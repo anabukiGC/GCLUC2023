@@ -16,6 +16,10 @@
     <ClCompile Include="Game\Field.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TaskSystem\DrawTask.cpp" />
+    <ClCompile Include="TaskSystem\DrawTaskManager.cpp" />
+    <ClCompile Include="TaskSystem\Task.cpp" />
+    <ClCompile Include="TaskSystem\TaskManager.cpp" />
     <ClCompile Include="Title\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -23,6 +27,10 @@
     <ClInclude Include="Game\AnimData.h" />
     <ClInclude Include="Game\Field.h" />
     <ClInclude Include="Game\Player.h" />
+    <ClInclude Include="TaskSystem\DrawTask.h" />
+    <ClInclude Include="TaskSystem\DrawTaskManager.h" />
+    <ClInclude Include="TaskSystem\Task.h" />
+    <ClInclude Include="TaskSystem\TaskManager.h" />
     <ClInclude Include="Title\Title.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
