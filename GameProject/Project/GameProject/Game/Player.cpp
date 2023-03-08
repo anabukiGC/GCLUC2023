@@ -17,7 +17,7 @@ Player::Player(const CVector3D& p, bool flip)
 		//反転フラグ
 		m_flip = flip;
 		//矩形判定の設定
-		m_rect = CRect(-32, -128, 32, 0);
+		//m_rect = CRect(-32, -128, 32, 0);
 		//通常状態へ
 		m_state = eState_Run;
 		//着地フラグ

@@ -5,6 +5,7 @@
 #include"Game/AnimData.h"
 #include "Game/Player.h"
 #include "Game/Field.h"
+#include "Game/Gimmick.h"
 #include "Base/Base.h"
 
 //--------------------------------------------
@@ -91,8 +92,15 @@ void Init(void)
 	ADD_RESOURCE("Town", CImage::CreateImage("Image/pik.png"));
 	ADD_RESOURCE("ForeGround", CImage::CreateImage("Image/piy.png"));
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/player_test.png", player_anim_data, 267, 450));
+	ADD_RESOURCE("Hari", CImage::CreateImage("Image/Hari.png"));
+	ADD_RESOURCE("Iwa", CImage::CreateImage("Image/Iwa.png"));
+	ADD_RESOURCE("Statekage", CImage::CreateImage("Image/Statekage.png"));
+	ADD_RESOURCE("Endkage", CImage::CreateImage("Image/Endkage.png"));
 	Base::Add(new Player(CVector3D(200, 500,0), false));
 	Base::Add(new Field());
+	//Base::Add(new Hari(CVector3D(400, 0, 0)));
+	//Base::Add(new XIwa(CVector3D(600, 0, 0)));
+	Base::Add(new YIwa(CVector3D(800, -1000, 0)));
 
 
 

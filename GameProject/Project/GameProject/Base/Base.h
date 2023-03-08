@@ -8,6 +8,7 @@
 #define Z_MAX (400)
 enum { 
 	eType_Field,
+	eType_Gimmick,
     eType_Player,
     eType_UI,
 	eType_Scene,

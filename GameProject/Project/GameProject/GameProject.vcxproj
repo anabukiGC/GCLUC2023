@@ -14,6 +14,7 @@
     <ClCompile Include="Base\Base.cpp" />
     <ClCompile Include="Game\AnimData.cpp" />
     <ClCompile Include="Game\Field.cpp" />
+    <ClCompile Include="Game\Gimmick.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Title\Title.cpp" />
@@ -22,6 +23,7 @@
     <ClInclude Include="Base\Base.h" />
     <ClInclude Include="Game\AnimData.h" />
     <ClInclude Include="Game\Field.h" />
+    <ClInclude Include="Game\Gimmick.h" />
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="Title\Title.h" />
   </ItemGroup>
