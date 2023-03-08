@@ -1,4 +1,6 @@
 #include"DrawTask.h"
+#include"Task.h"
+#include"DrawTaskManager.h"
 
 //コンストラクタ
 DrawTask::DrawTask(Task* task, DrawFunc func, int prio)
