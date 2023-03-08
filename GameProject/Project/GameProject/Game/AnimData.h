@@ -6,6 +6,7 @@ enum  {
 	eAnimRun,
 	eAnimJumpUp,
 	eAnimJumpDown,
+	eAnimDamage,
 };
 
 //プレイヤーのアニメーションデータ

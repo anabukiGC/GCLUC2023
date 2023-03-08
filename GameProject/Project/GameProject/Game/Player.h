@@ -5,7 +5,7 @@ class Player : public Base {
 private:
 	//ó‘Ô
 	enum {
-		eState_Idle,
+		eState_Run,
 		eState_Attack,
 		eState_Damage,
 		eState_Down
@@ -25,7 +25,7 @@ private:
 	CImage m_img;
 
 	//Šeó‘Ô‚Å‚Ì‹““®
-	void StateIdle();
+	void StateRun();
 	void StateAttack();
 	void StateDamage();
 	void StateDown();
@@ -33,6 +33,6 @@ private:
 public:
 	Player(const CVector2D& p, bool flip);
 	void Update();
-	void Draw();
 	void Collision(Base* b);
+	void Draw();
 };
