@@ -17,10 +17,9 @@
     <ClCompile Include="Title\Title.cpp">
       <Filter>Title</Filter>
     </ClCompile>
-    <ClCompile Include="TaskSystem\Task.cpp">
-      <Filter>TaskSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="TaskSystem\TaskManager.cpp">
+    <ClCompile Include="Game\Gimmick.cpp">
+      <Filter>Game</Filter>
+    </ClCompile> <ClCompile Include="TaskSystem\TaskManager.cpp">
       <Filter>TaskSystem</Filter>
     </ClCompile>
     <ClCompile Include="TaskSystem\DrawTask.cpp">
@@ -28,8 +27,7 @@
     </ClCompile>
     <ClCompile Include="TaskSystem\DrawTaskManager.cpp">
       <Filter>TaskSystem</Filter>
-    </ClCompile>
-  </ItemGroup>
+    </ClCompile>  </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
       <UniqueIdentifier>{29fff7c6-e324-4379-85f3-4039c3c7c48b}</UniqueIdentifier>
@@ -60,9 +58,8 @@
     <ClInclude Include="Title\Title.h">
       <Filter>Title</Filter>
     </ClInclude>
-    <ClInclude Include="TaskSystem\Task.h">
-      <Filter>TaskSystem</Filter>
-    </ClInclude>
+<ClInclude Include="Game\Gimmick.h">
+      <Filter>Game</Filter></ClInclude>
     <ClInclude Include="TaskSystem\TaskManager.h">
       <Filter>TaskSystem</Filter>
     </ClInclude>
@@ -71,6 +68,5 @@
     </ClInclude>
     <ClInclude Include="TaskSystem\DrawTaskManager.h">
       <Filter>TaskSystem</Filter>
-    </ClInclude>
-  </ItemGroup>
+    </ClInclude>  </ItemGroup>
 </Project>
