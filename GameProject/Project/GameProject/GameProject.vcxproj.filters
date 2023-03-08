@@ -32,6 +32,12 @@
     <ClCompile Include="TaskSystem\Task.cpp">
       <Filter>TaskSystem</Filter>
     </ClCompile>
+    <ClCompile Include="Game\ObjectBase.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\ObjectManager.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -77,6 +83,12 @@
     </ClInclude>
     <ClInclude Include="TaskSystem\Task.h">
       <Filter>TaskSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ObjectBase.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\ObjectManager.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

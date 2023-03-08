@@ -15,6 +15,8 @@
     <ClCompile Include="Game\AnimData.cpp" />
     <ClCompile Include="Game\Field.cpp" />
     <ClCompile Include="Game\Gimmick.cpp" />
+    <ClCompile Include="Game\ObjectBase.cpp" />
+    <ClCompile Include="Game\ObjectManager.cpp" />
     <ClCompile Include="Game\Player.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TaskSystem\DrawTask.cpp" />
@@ -28,6 +30,8 @@
     <ClInclude Include="Game\AnimData.h" />
     <ClInclude Include="Game\Field.h" />
     <ClInclude Include="Game\Gimmick.h" />
+    <ClInclude Include="Game\ObjectBase.h" />
+    <ClInclude Include="Game\ObjectManager.h" />
     <ClInclude Include="Game\Player.h" />
     <ClInclude Include="TaskSystem\DrawTask.h" />
     <ClInclude Include="TaskSystem\DrawTaskManager.h" />
