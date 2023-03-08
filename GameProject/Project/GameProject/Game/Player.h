@@ -31,7 +31,7 @@ private:
 	void StateDown();
 
 public:
-	Player(const CVector2D& p, bool flip);
+	Player(const CVector3D& p, bool flip);
 	void Update();
 	void Collision(Base* b);
 	void Draw();

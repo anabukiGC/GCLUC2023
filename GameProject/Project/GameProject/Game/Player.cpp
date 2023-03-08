@@ -2,7 +2,7 @@
 #include "AnimData.h"
 #include "Field.h"
 
-Player::Player(const CVector2D& p, bool flip)
+Player::Player(const CVector3D& p, bool flip)
 	:Base(eType_Player)
 {
 		//‰æ‘œ•¡»
@@ -128,6 +128,7 @@ void Player::StateDamage()
 	{
 		m_state = eState_Run;//‘–só‘Ô‚É–ß‚é
 	}
+	m_scroll.x += 6/2;
 }
 
 void Player::StateDown()

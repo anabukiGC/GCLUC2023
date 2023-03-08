@@ -91,7 +91,7 @@ void Init(void)
 	ADD_RESOURCE("Town", CImage::CreateImage("Image/pik.png"));
 	ADD_RESOURCE("ForeGround", CImage::CreateImage("Image/piy.png"));
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/player_test.png", player_anim_data, 267, 450));
-	Base::Add(new Player(CVector2D(200, 500), false));
+	Base::Add(new Player(CVector3D(200, 500,0), false));
 	Base::Add(new Field());
 
 

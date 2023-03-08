@@ -7,6 +7,7 @@ CVector2D Base::m_scroll(0, 0);
 Base::Base(int type):m_type(type),m_pos(0,0,0),m_vec(0,0,0), m_rad(0),m_kill(false) {
 
 }
+/*
 bool Base::CollisionRect(Base* b1, Base* b2)
 {
 	//b1の短形
@@ -44,6 +45,7 @@ void Base::DrawRect()
 		CVector4D(1, 0, 0, 0.5f)
 	);
 }
+*/
 CVector2D Base::GetScreenPos(const CVector3D& pos) {
 	//座標ースクロール値＝画面上での位置
 	return CVector2D(pos.x+pos.z/2+720,pos.y-pos.z/2+1040) - m_scroll;
@@ -83,6 +85,10 @@ void Base::Update() {
 void Base::Collision(Base* b)
 {
 
+}
+bool Base::CollisionAABB(Base* b1, Base* b2)
+{
+	return false;
 }
 void Base::Draw() {
 

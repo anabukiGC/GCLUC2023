@@ -30,9 +30,13 @@ static TexAnim playerJumpDown[] = {
 
 static TexAnim playerDamage[] = {
 	{17,4},
+	{9,1},
 	{18,4},
+	{9,1},
 	{19,4},
+	{9,1},
 	{20,4},
+	{9,1},
 	{21,14},
 };
 

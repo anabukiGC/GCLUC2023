@@ -32,7 +32,9 @@ public:
 	//オブジェクトのリスト
 	static std::list<Base*>m_list;
 	//短形
-	CRect m_rect;
+	//CRect m_rect;
+	//箱型
+	CAABB m_box;
 
 public:
 	//typeオブジェクトの種類
@@ -44,9 +46,9 @@ public:
 	//削除フラグON
 	void SetKill() { m_kill = true; }
 	//短形同士の判定
-	static bool CollisionRect(Base* b1, Base* b2);
+	static bool CollisionAABB(Base* b1, Base* b2);
 	//短形の表示
-	void DrawRect();
+	//void DrawRect();
 
 	static CVector2D GetScreenPos(const CVector3D& pos);
 	//全てのオブジェクトの更新
