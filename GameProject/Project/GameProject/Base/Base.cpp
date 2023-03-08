@@ -8,28 +8,6 @@ Base::Base(int type):m_type(type),m_pos(0,0,0),m_vec(0,0,0), m_rad(0),m_kill(fal
 
 }
 /*
-bool Base::CollisionRect(Base* b1, Base* b2)
-{
-	//b1の短形
-	CRect rect1 = CRect(
-		b1->m_pos.x + b1->m_rect.m_left,
-		b1->m_pos.y + b1->m_rect.m_top,
-		b1->m_pos.x + b1->m_rect.m_right,
-		b1->m_pos.y + b1->m_rect.m_bottom);
-	//b2の短形
-	CRect rect2 = CRect(
-		b2->m_pos.x + b2->m_rect.m_left,
-		b2->m_pos.y + b2->m_rect.m_top,
-		b2->m_pos.x + b2->m_rect.m_right,
-		b2->m_pos.y + b2->m_rect.m_bottom);
-
-		//短形同士の判定
-	if (rect1.m_left <= rect2.m_right && rect1.m_right >= rect2.m_left &&
-		rect1.m_top <= rect2.m_bottom && rect1.m_bottom >= rect2.m_top)
-			return true;
-	
-	return false;
-}
 void Base::DrawRect()
 {
 	//デバッグ用　短形の表示

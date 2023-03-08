@@ -16,8 +16,8 @@ Player::Player(const CVector3D& p, bool flip)
 		m_img.SetCenter(267/2, 450);
 		//反転フラグ
 		m_flip = flip;
-		//箱形判定の設定
-		m_box = CAABB(CVector3D(0,0,0),CVector3D(10,10,10));
+		//箱形判定の設定(増減は余白分)
+		m_box = CAABB(CVector3D(-267/2+21,0+19,0),CVector3D(267/2-36,450,267/8));
 		//矩形判定の設定
 		//m_rect = CRect(-32, -128, 32, 0);
 		//通常状態へ
@@ -139,7 +139,15 @@ void Player::StateDown()
 
 void Player::Collision(Base* b)
 {
-
+	switch (b->m_type)
+	{
+	case eType_Gimmick:
+		if (CollisionAABB(this, b))
+		{
+			m_state = eState_Damage;
+		}
+		break;
+	}
 }
 
 void Player::Draw()

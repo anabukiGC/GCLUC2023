@@ -32,12 +32,14 @@ YIwa::YIwa(const CVector3D& pos) :Base(eType_Gimmick) {
 	m_img.SetCenter(224 / 2, 224);
 	m_img2.SetCenter(224 / 2, 224);
 	m_img3.SetCenter(224 / 2, 224);
+	//” Œ`İ’è(‘Œ¸‚Í—]”’•ª)
+	m_box = CAABB(CVector3D(-224/2+37,34,0), CVector3D(224/2-32,224-34,224/2));
 
 }
 
 void YIwa::Update() {
 	static int move_speed = 10;
-	if (m_pos.y < -130) {
+	if (m_pos.y < 0) {
 		m_pos.y += move_speed;
 		//m_pos.x += GameData::move_speed;
 		m_pos.x += 6;
