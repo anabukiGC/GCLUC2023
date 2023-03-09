@@ -7,23 +7,23 @@ CVector2D Base::m_scroll(0, 0);
 Base::Base(int type):m_type(type),m_pos(0,0,0),m_vec(0,0,0), m_rad(0),m_kill(false) {
 
 }
-/*
+
 void Base::DrawRect()
 {
-	//デバッグ用　短形の表示
+	//箱形のxとyだけを表示
 	CRect rect = CRect(
-		m_pos.x + m_rect.m_left,
-		m_pos.y + m_rect.m_top,
-		m_pos.x + m_rect.m_right,
-		m_pos.y + m_rect.m_bottom
+		m_pos.x + m_box.min.x,//左
+		m_pos.y + m_box.min.y,//上
+		m_pos.x + m_box.max.x,//右
+		m_pos.y + m_box.max.y//下
 	);
 	Utility::DrawQuad(
-		CVector2D(rect.m_left, rect.m_top) - m_scroll,
+		CVector2D(rect.m_left + 720, rect.m_top + 1040) - m_scroll,
 		CVector2D(rect.m_width, rect.m_height),
 		CVector4D(1, 0, 0, 0.5f)
 	);
 }
-*/
+
 CVector2D Base::GetScreenPos(const CVector3D& pos) {
 	//座標ースクロール値＝画面上での位置
 	return CVector2D(pos.x+pos.z/2+720,pos.y-pos.z/2+1040) - m_scroll;
@@ -64,12 +64,13 @@ void Base::Collision(Base* b)
 {
 
 }
+
 bool Base::CollisionAABB(Base* b1, Base* b2)
 {
 	//b1の箱形
-	CAABB box1 =CAABB(
-		CVector3D(b1->m_pos.x+b1->m_box.min.x,b1->m_pos.y+b1->m_box.min.y,b1->m_pos.z+b1->m_box.min.z),
-		CVector3D(b1->m_pos.x+b1->m_box.max.x,b1->m_pos.y+b1->m_box.max.y,b1->m_pos.z+b1->m_box.max.z)
+	CAABB box1 = CAABB(
+		CVector3D(b1->m_pos.x + b1->m_box.min.x, b1->m_pos.y + b1->m_box.min.y, b1->m_pos.z + b1->m_box.min.z),
+		CVector3D(b1->m_pos.x + b1->m_box.max.x, b1->m_pos.y + b1->m_box.max.y, b1->m_pos.z + b1->m_box.max.z)
 	);
 	//b2の箱形
 	CAABB box2 = CAABB(
@@ -85,6 +86,7 @@ bool Base::CollisionAABB(Base* b1, Base* b2)
 
 	return false;
 }
+
 void Base::Draw() {
 
 }

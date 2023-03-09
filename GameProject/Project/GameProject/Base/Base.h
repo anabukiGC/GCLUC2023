@@ -49,7 +49,7 @@ public:
 	//短形同士の判定
 	static bool CollisionAABB(Base* b1, Base* b2);
 	//短形の表示
-	//void DrawRect();
+	void DrawRect();
 
 	static CVector2D GetScreenPos(const CVector3D& pos);
 	//全てのオブジェクトの更新

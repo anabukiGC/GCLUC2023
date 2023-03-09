@@ -33,7 +33,7 @@ YIwa::YIwa(const CVector3D& pos) :Base(eType_Gimmick) {
 	m_img2.SetCenter(224 / 2, 224);
 	m_img3.SetCenter(224 / 2, 224);
 	//箱形設定(増減は余白分)
-	m_box = CAABB(CVector3D(-224/2+37,34,0), CVector3D(224/2-32,224-34,224/2));
+	m_box = CAABB(CVector3D(-224 / 2 + 37, -224 + 34, 0), CVector3D(224 / 2 - 32, -34, 224 / 2 - 70));
 
 }
 
@@ -59,6 +59,8 @@ void YIwa::Draw() {
 	//m_img.SetPos(1000,900);
 	m_img.SetPos(GetScreenPos(m_pos));
 	m_img.Draw();
+	//矩形の表示
+	DrawRect();
 }
 
 XIwa::XIwa(const CVector3D& pos) :Base(eType_Gimmick) {

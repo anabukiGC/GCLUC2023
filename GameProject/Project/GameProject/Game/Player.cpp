@@ -17,7 +17,7 @@ Player::Player(const CVector3D& p, bool flip)
 		//反転フラグ
 		m_flip = flip;
 		//箱形判定の設定(増減は余白分)
-		m_box = CAABB(CVector3D(-267/2+21,0+19,0),CVector3D(267/2-36,450,267/8));
+		m_box = CAABB(CVector3D(-267 / 2 + 21, -450, 0), CVector3D(267 / 2 - 36, -19, 267 / 8));
 		//矩形判定の設定
 		//m_rect = CRect(-32, -128, 32, 0);
 		//通常状態へ
@@ -90,13 +90,13 @@ void Player::StateRun()
 		m_pos.z -= move_speed;
 	}
 	//ジャンプ
-	if (PUSH(CInput::eButton5))
+	if (PUSH(CInput::eButton5)&&m_is_ground)
 	{
 		m_vec.y = -jump_pow;
 		m_is_ground = false;
 	}
 
-	//デバッグ用
+	//ダメージモーション確認用(後で消す)
 	if (PUSH(CInput::eButton1))
 	{
 		m_state = eState_Damage;
@@ -158,5 +158,5 @@ void Player::Draw()
 	//描画
 	m_img.Draw();
 	//当たり判定矩形の表示
-	//DrawRect();
+	DrawRect();
 }
