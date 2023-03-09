@@ -4,6 +4,15 @@
 class Task;
 class DrawTaskManager;
 
+enum class EDrawPrio
+{
+	eShadow,
+	eChara,
+
+	Num
+
+};
+
 typedef void(Task::* DrawFunc)();
 
 class DrawTask

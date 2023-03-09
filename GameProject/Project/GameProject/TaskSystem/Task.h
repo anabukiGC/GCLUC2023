@@ -3,6 +3,16 @@
 
 class TaskManager;
 
+enum class ETaskPrio
+{
+	eDefault,
+
+	ePlayer,
+
+	eObjectManager,
+
+	Num
+};
 
 
 class Task
