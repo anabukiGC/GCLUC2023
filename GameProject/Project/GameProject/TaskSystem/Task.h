@@ -11,6 +11,7 @@ enum class ETaskPrio
 	ePlayer,
 	eGimmick,
 
+	eGimmickManager,
 	eObjectManager,
 	eField,
 
@@ -21,6 +22,7 @@ enum class ETaskTag
 {
 	ePlayer,
 	eGimick,
+	eGimmickManager,
 	eObjectManager,
 	eField,
 	eScene,
