@@ -26,6 +26,7 @@
     <ClCompile Include="TaskSystem\Task.cpp" />
     <ClCompile Include="TaskSystem\TaskManager.cpp" />
     <ClCompile Include="Title\Title.cpp" />
+    <ClCompile Include="UI\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\AnimData.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="TaskSystem\Task.h" />
     <ClInclude Include="TaskSystem\TaskManager.h" />
     <ClInclude Include="Title\Title.h" />
+    <ClInclude Include="UI\UI.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FE2CE3B1-49BF-46A5-9DB1-9BD5B52FE1A0}</ProjectGuid>

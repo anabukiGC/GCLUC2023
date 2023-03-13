@@ -7,6 +7,7 @@ enum class ETaskPrio
 {
 	eDefault,
 
+	eUI,
 	ePlayer,
 	eGimmick,
 
@@ -26,6 +27,7 @@ enum class ETaskTag
 	eObjectManager,
 	eField,
 	eScene,
+	eUI,
 };
 class Task
 {
