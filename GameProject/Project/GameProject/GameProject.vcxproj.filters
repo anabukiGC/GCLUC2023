@@ -41,6 +41,9 @@
     <ClCompile Include="Game\GimmickManager.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\GameData.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -95,6 +98,9 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Game\GimmickManager.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameData.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
