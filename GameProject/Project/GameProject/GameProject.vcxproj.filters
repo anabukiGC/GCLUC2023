@@ -44,6 +44,9 @@
     <ClCompile Include="Game\GameData.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="UI\UI.cpp">
+      <Filter>UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -57,6 +60,9 @@
     </Filter>
     <Filter Include="TaskSystem">
       <UniqueIdentifier>{23f778d5-2b5b-48af-bc8f-83a0e7ecf4a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI">
+      <UniqueIdentifier>{26aa672e-fd70-4c74-87b0-e2112d1a1aad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +108,9 @@
     </ClInclude>
     <ClInclude Include="Game\GameData.h">
       <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\UI.h">
+      <Filter>UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
