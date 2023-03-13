@@ -8,6 +8,12 @@ Hari::Hari(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETask
 	//íÜêSà íuê›íË
 	m_img.SetCenter(44 / 2, 74);
 }
+
+void Hari::Update(float deltatime) {
+	static int move_speed = 9;
+	m_pos.x -= move_speed;
+}
+
 //âeÇÕï`âÊÇµÇ»Ç¢
 void Hari::DrawShadow()
 {
@@ -37,6 +43,11 @@ void YIwa::Update(float deltatime) {
 
 }
 
+//âeÇÕï`âÊÇµÇ»Ç¢
+void YIwa::DrawShadow()
+{
+}
+
 //ObjectBaseégóp
 XIwa::XIwa(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETaskTag::eGimick ){
 	m_img = COPY_RESOURCE("Iwa", CImage);
@@ -45,6 +56,17 @@ XIwa::XIwa(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETask
 	m_img.SetCenter(224 / 2, 224);
 
 }
+
+//Taskégóp	
+void XIwa::Update(float deltatime) {
+	static int move_speed = 10;
+	m_pos.x -= move_speed;
+	
+	//ObjectBase::Update(deltatime);
+	ObjectBase::Update(deltatime);
+
+}
+
 //âeÇÕï`âÊÇµÇ»Ç¢
 void XIwa::DrawShadow() 
 {
