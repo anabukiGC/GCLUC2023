@@ -11,7 +11,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Base\Base.cpp" />
     <ClCompile Include="Game\AnimData.cpp" />
     <ClCompile Include="Game\Field.cpp" />
     <ClCompile Include="Game\Gimmick.cpp" />
@@ -23,21 +22,19 @@
     <ClCompile Include="TaskSystem\DrawTaskManager.cpp" />
     <ClCompile Include="TaskSystem\Task.cpp" />
     <ClCompile Include="TaskSystem\TaskManager.cpp" />
-    <ClCompile Include="Title\Title.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Base\Base.h" />
     <ClInclude Include="Game\AnimData.h" />
     <ClInclude Include="Game\Field.h" />
     <ClInclude Include="Game\Gimmick.h" />
     <ClInclude Include="Game\ObjectBase.h" />
     <ClInclude Include="Game\ObjectManager.h" />
     <ClInclude Include="Game\Player.h" />
+    <ClInclude Include="Global.h" />
     <ClInclude Include="TaskSystem\DrawTask.h" />
     <ClInclude Include="TaskSystem\DrawTaskManager.h" />
     <ClInclude Include="TaskSystem\Task.h" />
     <ClInclude Include="TaskSystem\TaskManager.h" />
-    <ClInclude Include="Title\Title.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{FE2CE3B1-49BF-46A5-9DB1-9BD5B52FE1A0}</ProjectGuid>
@@ -91,8 +88,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>../include;../GLLibrary</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../include;../GLLibrary;$(ProjectDir)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <ForcedIncludeFiles>Global.h</ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

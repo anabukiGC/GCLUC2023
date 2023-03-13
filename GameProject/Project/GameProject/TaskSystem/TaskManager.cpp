@@ -104,18 +104,21 @@ void TaskManager::RemoveTask(Task* task)
 	task->m_next = nullptr;
 }
 
-//タスクを削除
-void TaskManager::DeleteTask(Task* task)
-{
-}
-
 //更新処理
 void TaskManager::Update()
 {
 	Task* next = m_head;
 	while (next != nullptr)
 	{
-		next->Update(CFPS::GetDeltaTime());
-		next = next->m_next;
+		//更新中に即消すとここでバグるので,KillフラグON->削除とワンクッション置く
+		if (next->m_kill) {
+			Task* tmp = next;
+			next = next->m_next;
+			delete tmp;
+		}
+		else {
+			next->Update(CFPS::GetDeltaTime());
+			next = next->m_next;
+		}
 	}
 }

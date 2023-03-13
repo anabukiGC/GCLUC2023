@@ -1,28 +1,30 @@
 #pragma once
-#include "../Base/Base.h"
-class Hari :public Base {
+//ObjectBase使用
+#include"ObjectBase.h"
+class Hari : public ObjectBase{
 public:
-	CImage m_img;
 public:
 	Hari(const CVector3D& pos);
-	void Draw();
+	//影を描画しないためオーバーライド
+	void DrawShadow();
 };
 
-class YIwa :public Base {
+//ObjectBase使用
+class YIwa :public ObjectBase {
 public:
-	CImage m_img;
-	CImage m_img2;
-	CImage m_img3;
 public:
 	YIwa(const CVector3D& pos);
-	void Update();
-	void Draw();
+	//Task仕様に変更
+	void Update(float deltatime);
 };
 
-class XIwa :public Base {
+//ObjectBase仕様
+class XIwa : public ObjectBase {
 public:
-	CImage m_img;
 public:
 	XIwa(const CVector3D& pos);
-	void Draw();
+//影を使用しないためオーバーライド
+	void DrawShadow();
+
 };
+

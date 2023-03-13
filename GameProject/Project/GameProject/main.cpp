@@ -1,25 +1,19 @@
-#include <GLLibrary.h>
-#define SCREEN_WIDTH 1920
-#define SCREEN_HEIGHT 1080
-
+//Global.hで定義
+//全てのソースコードがGlobal.hを読み込む
 #include"Game/AnimData.h"
 #include "Game/Player.h"
 #include "Game/Field.h"
 #include "Game/Gimmick.h"
-#include "Base/Base.h"
-
+#include"TaskSystem/TaskManager.h"
+#include"TaskSystem/DrawTaskManager.h"
 //--------------------------------------------
 //グローバル変数領域
 //-------------------------------------------
 
 void MainLoop(void) {
-
-	Base::CheckKillAll();
-	Base::UpdateAll();
-	Base::CollisionAll();
-	Base::DrawAll();
-
-
+	//Task仕様に変更
+	TaskManager::Instance()->Update();
+	DrawTaskManager::Instance()->Draw();
 }
 
 void Init(void)
@@ -81,8 +75,7 @@ void Init(void)
 	SetCurrentDirectory("data");
 
 
-	CShader::GetInstance("StaticMesh");
-	CShader::GetInstance("SkinMesh");
+	//Shader使わないので削除
 	CSound::GetInstance();
 
 	//-----------------------------------------------------
@@ -96,11 +89,13 @@ void Init(void)
 	ADD_RESOURCE("Iwa", CImage::CreateImage("Image/Iwa.png"));
 	ADD_RESOURCE("Statekage", CImage::CreateImage("Image/Statekage.png"));
 	ADD_RESOURCE("Endkage", CImage::CreateImage("Image/Endkage.png"));
-	Base::Add(new Player(CVector3D(200, 500,0), false));
-	Base::Add(new Field());
-	//Base::Add(new Hari(CVector3D(400, 0, 0)));
-	//Base::Add(new XIwa(CVector3D(600, 0, 0)));
-	Base::Add(new YIwa(CVector3D(800, -1000, 0)));
+//Task仕様に変更
+	new Player(CVector3D(200, 0, 0), false);
+
+	new Field();
+	new Hari(CVector3D(400, 0, 0));
+	new XIwa(CVector3D(600, 0, 0));
+	new YIwa(CVector3D(800, -1000, 0));
 
 
 
@@ -110,6 +105,7 @@ void Init(void)
 
 void Release()
 {
+	TaskManager::ClearInstance();
 	CLoadThread::ClearInstance();
 	CSound::ClearInstance();
 	CResourceManager::ClearInstance();

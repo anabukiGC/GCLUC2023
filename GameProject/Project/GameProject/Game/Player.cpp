@@ -3,7 +3,7 @@
 #include "Field.h"
 
 Player::Player(const CVector3D& p, bool flip)
-	:Base(eType_Player)
+	:ObjectBase((int)ETaskPrio::ePlayer, (int)ETaskTag::ePlayer)
 {
 		//画像複製
 		m_img = COPY_RESOURCE("Player", CImage);
@@ -32,8 +32,8 @@ Player::Player(const CVector3D& p, bool flip)
 		m_hp = 100;
 }
 
-
-void Player::Update()
+//Task使用
+void Player::Update(float deltatime)
 {
 	switch (m_state)
 	{
@@ -68,6 +68,7 @@ void Player::Update()
 		m_pos.z = Z_MAX;
 	if (m_pos.z < Z_MIN)
 		m_pos.z = Z_MIN;
+	ObjectBase::Update(deltatime);
 }
 
 void Player::StateRun()
@@ -129,6 +130,7 @@ void Player::StateDamage()
 	if (m_img.CheckAnimationEnd())
 	{
 		m_state = eState_Run;//走行状態に戻る
+		//Delete();//削除テスト
 	}
 	m_scroll.x += 6/2;
 }
@@ -136,27 +138,17 @@ void Player::StateDamage()
 void Player::StateDown()
 {
 }
-
-void Player::Collision(Base* b)
+//BaseからObjectBase仕様に変更
+void Player::Collision(ObjectBase* b)
 {
-	switch (b->m_type)
+
+	switch (b->GetTag())
 	{
-	case eType_Gimmick:
+	case (int)ETaskTag::eGimick:
 		if (CollisionAABB(this, b))
 		{
 			m_state = eState_Damage;
 		}
 		break;
 	}
-}
-
-void Player::Draw()
-{//位置設定
-	m_img.SetPos(GetScreenPos(m_pos));
-	//反転設定
-	m_img.SetFlipH(m_flip);
-	//描画
-	m_img.Draw();
-	//当たり判定矩形の表示
-	DrawRect();
 }

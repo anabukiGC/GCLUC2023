@@ -2,10 +2,12 @@
 #include"TaskManager.h"
 
 //コンストラクタ
-Task::Task(int prio)
+Task::Task(int prio,int tag)
 	:m_prev(nullptr)
 	,m_next(nullptr)
 	,m_priority(prio)
+	,m_tag(tag)
+	,m_kill(false)
 {
 	TaskManager::Instance()->AddTask(this);
 }
@@ -33,5 +35,5 @@ int Task::GetPriority() const
 //タスクを削除
 void Task::Delete()
 {
-	TaskManager::Instance()->DeleteTask(this);
+	m_kill = true;
 }

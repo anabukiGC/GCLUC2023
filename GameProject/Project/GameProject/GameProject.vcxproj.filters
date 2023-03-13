@@ -11,12 +11,6 @@
     <ClCompile Include="Game\Player.cpp">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="Base\Base.cpp">
-      <Filter>Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Title\Title.cpp">
-      <Filter>Title</Filter>
-    </ClCompile>
     <ClCompile Include="Game\Gimmick.cpp">
       <Filter>Game</Filter>
     </ClCompile>
@@ -63,12 +57,6 @@
     <ClInclude Include="Game\Player.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="Base\Base.h">
-      <Filter>Base</Filter>
-    </ClInclude>
-    <ClInclude Include="Title\Title.h">
-      <Filter>Title</Filter>
-    </ClInclude>
     <ClInclude Include="Game\Gimmick.h">
       <Filter>Game</Filter>
     </ClInclude>
@@ -90,5 +78,6 @@
     <ClInclude Include="Game\ObjectManager.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="Global.h" />
   </ItemGroup>
 </Project>

@@ -6,6 +6,7 @@ class DrawTaskManager;
 
 enum class EDrawPrio
 {
+	eField,
 	eShadow,
 	eChara,
 

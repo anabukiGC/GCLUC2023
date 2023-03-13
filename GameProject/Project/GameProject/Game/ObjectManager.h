@@ -20,4 +20,8 @@ public:
 
 	void Sort();
 	void Update(float deltaTime);
+	//ObjectBase“¯m‚ÌÕ“ËŒŸØ
+	void Collision();
+
+
 };

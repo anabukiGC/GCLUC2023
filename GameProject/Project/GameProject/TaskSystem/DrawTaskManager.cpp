@@ -106,7 +106,8 @@ void DrawTaskManager::RemoveDrawTask(DrawTask* task)
 	{
 		prev->m_next = task->m_next;
 	}
-	if (prev != nullptr)
+	//ƒoƒOC³
+	if (next != nullptr)
 	{
 		next->m_prev = task->m_prev;
 	}

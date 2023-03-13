@@ -1,9 +1,12 @@
 #pragma once
 #include"../TaskSystem/Task.h"
 #include"../TaskSystem/DrawTask.h"
-#include <GLLibrary.h>
-
-
+//重力加速度
+#define GRAVITY (9.8f/20)
+#define X_MIN (-640)
+#define X_MAX (900/2)
+#define Z_MIN (0)
+#define Z_MAX (400)
 class ObjectManager;
 
 class ObjectBase :public Task
@@ -13,20 +16,29 @@ class ObjectBase :public Task
 private:
 	ObjectBase* m_prev;
 	ObjectBase* m_next;
-	CImage* m_shadowImage;
+	//COPY_RESOUCEを使用するので実体で
+	CImage m_shadowImage;
 
 	DrawTask* m_drawTask;
 	DrawTask* m_shadowDrawTask;
 
 protected:
-	CImage* m_image;
+	//COPY_RESOUCEを使用するので実体で
+	CImage m_img;
 	CVector2D m_imgePos;
 
 	CVector3D m_pos;
+	//Baseクラスから移植
+	CVector3D m_vec;
+	bool m_flip;
 
+	//箱型
+	CAABB m_box;
 public:
+	//スクロール値
+	static CVector2D m_scroll;
 	//コンストラクタ
-	ObjectBase(int prio);
+	ObjectBase(int prio,int tag);
 	//デストラクタ
 	virtual ~ObjectBase();
 
@@ -39,6 +51,14 @@ public:
 	virtual void Update(float deltaTime);
 	//描画
 	virtual void Draw();
+	//衝突検証
+	virtual void Collision(ObjectBase* b){}
 	// 影を描画
-	void DrawShadow();
+	virtual void DrawShadow();
+
+	void DrawRect();
+	//矩形同士の判定
+	static bool CollisionAABB(ObjectBase* b1, ObjectBase* b2);
+	static CVector2D GetScreenPos(const CVector3D& pos);
+
 };

@@ -4,7 +4,7 @@ ObjectManager* ObjectManager::ms_instance = nullptr;
 
 //コンストラクタ
 ObjectManager::ObjectManager()
-	:Task((int)ETaskPrio::eObjectManager)
+	:Task((int)ETaskPrio::eObjectManager,(int)ETaskTag::eObjectManager)
 	,m_head(nullptr)
 	,m_objectCount(0)
 	,m_isSort(false)
@@ -85,7 +85,8 @@ void ObjectManager::RemoveObject(ObjectBase* object)
 	{
 		prev->m_next = object->m_next;
 	}
-	if (prev != nullptr)
+	//バグ修正
+	if (next != nullptr)
 	{
 		next->m_prev = object->m_prev;
 	}
@@ -155,4 +156,20 @@ void ObjectManager::Sort()
 void ObjectManager::Update(float deltaTime)
 {
 	Sort();
+	Collision();
+}
+
+void ObjectManager::Collision()
+{
+	ObjectBase* next = m_head;
+	while (next)
+	{
+		ObjectBase* target = next->m_next;
+		while (target) {
+			next->Collision(target);
+			target->Collision(next);
+			target = target->m_next;
+		}
+		next = next->m_next;
+	}
 }

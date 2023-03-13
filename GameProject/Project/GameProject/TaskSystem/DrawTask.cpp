@@ -1,7 +1,6 @@
 #include"DrawTask.h"
-#include"Task.h"
 #include"DrawTaskManager.h"
-
+#include"Task.h"
 //コンストラクタ
 DrawTask::DrawTask(Task* task, DrawFunc func, int prio)
 	:m_prev(nullptr)
@@ -11,17 +10,23 @@ DrawTask::DrawTask(Task* task, DrawFunc func, int prio)
 	,m_func(func)
 
 {
+
+	DrawTaskManager::Instance()->AddDrawTask(this);
 }
+
 
 //デストラクタ
 DrawTask::~DrawTask()
 {
+	DrawTaskManager::Instance()->RemoveDrawTask(this);
 }
 
 //優先度設定
 void DrawTask::SetPriority(int prio)
 {
 	m_priority = prio;
+	DrawTaskManager::Instance()->RemoveDrawTask(this);
+	DrawTaskManager::Instance()->AddDrawTask(this);
 }
 
 //優先度取得
@@ -33,6 +38,7 @@ int DrawTask::GetPriority() const
 //タスク削除
 void DrawTask::Delete()
 {
+	DrawTaskManager::Instance()->DeleteDrawTask(this);
 }
 
 //描画処理

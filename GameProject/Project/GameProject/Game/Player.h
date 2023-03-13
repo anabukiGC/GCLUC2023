@@ -1,7 +1,7 @@
 #pragma once
-#include"../Base/Base.h"
-
-class Player : public Base {
+#include "ObjectBase.h"
+//ObjectBaseを継承
+class Player : public ObjectBase {
 private:
 	//状態
 	enum {
@@ -22,7 +22,6 @@ private:
 	int m_damage_no;
 	//ヒットポイント
 	int m_hp;
-	CImage m_img;
 
 	//各状態での挙動
 	void StateRun();
@@ -32,7 +31,8 @@ private:
 
 public:
 	Player(const CVector3D& p, bool flip);
-	void Update();
-	void Collision(Base* b);
-	void Draw();
+	//Task仕様
+	void Update(float deltatime);
+	//ObjectBase仕様
+	void Collision(ObjectBase* b);
 };

@@ -22,8 +22,7 @@ public:
 	void AddTask(Task* task);
 	//リストからタスクを取り除く
 	void RemoveTask(Task* task);
-	//タスクを削除する
-	void DeleteTask(Task* task);
+	//即削除はしない
 	//更新処理
 	void Update();
 
