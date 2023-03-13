@@ -1,12 +1,15 @@
 #pragma once
+#include"../TaskSystem/DrawTask.h"
 
-class Title : public Base {
-	CImage m_img;
+class Title : public Task {
+public:
+	DrawTask* m_drawTask;
+	CImage m_title;
 	CFont m_title_text;
 public:
 	Title();
 	~Title();
-	void Update();
+	void Update(float deltatime);
 	void Draw();
 };
 

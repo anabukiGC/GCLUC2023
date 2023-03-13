@@ -4,6 +4,7 @@
 #include "Game/Player.h"
 #include "Game/Field.h"
 #include "Game/Gimmick.h"
+#include"Title/Title.h"
 #include"TaskSystem/TaskManager.h"
 #include"TaskSystem/DrawTaskManager.h"
 //--------------------------------------------
@@ -89,13 +90,15 @@ void Init(void)
 	ADD_RESOURCE("Iwa", CImage::CreateImage("Image/Iwa.png"));
 	ADD_RESOURCE("Statekage", CImage::CreateImage("Image/Statekage.png"));
 	ADD_RESOURCE("Endkage", CImage::CreateImage("Image/Endkage.png"));
+	ADD_RESOURCE("title", CImage::CreateImage("Image/Title.png"));
 //TaskédólÇ…ïœçX
-	new Player(CVector3D(200, 0, 0), false);
+	new Title();
 
+	/*new Player(CVector3D(200, 0, 0), false);
 	new Field();
 	new Hari(CVector3D(400, 0, 0));
 	new XIwa(CVector3D(600, 0, 0));
-	new YIwa(CVector3D(800, -1000, 0));
+	new YIwa(CVector3D(800, -1000, 0));*/
 
 
 

@@ -7,4 +7,4 @@
 
 //これらを必ずインクルード
 #include"TaskSystem/Task.h"
-//#include"TaskSystem/DrawTask.h"
+#include"TaskSystem/DrawTask.h"

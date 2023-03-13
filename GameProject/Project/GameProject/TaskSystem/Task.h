@@ -12,6 +12,7 @@ enum class ETaskPrio
 
 	eObjectManager,
 	eField,
+	eScene,
 
 	Num
 };
@@ -22,6 +23,7 @@ enum class ETaskTag
 	eGimick,
 	eObjectManager,
 	eField,
+	eScene,
 };
 class Task
 {
