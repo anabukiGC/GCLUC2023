@@ -3,8 +3,10 @@
 #include"../TaskSystem/Task.h"
 
 class Game : public Task {
-private:
+public:
+	DrawTask* m_drawTask;
 public:
 	Game();
+	~Game();
 		void  Update(float deltatime);
 };

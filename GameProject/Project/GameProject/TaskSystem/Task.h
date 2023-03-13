@@ -6,13 +6,13 @@ class TaskManager;
 enum class ETaskPrio
 {
 	eDefault,
+	eScene,
 
 	ePlayer,
 	eGimmick,
 
 	eObjectManager,
 	eField,
-	eScene,
 
 	Num
 };

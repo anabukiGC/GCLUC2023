@@ -4,6 +4,12 @@
 Title::Title():Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 {
 	m_title = COPY_RESOURCE("title", CImage);
+	m_drawTask = new DrawTask
+	(
+		this,
+		(DrawFunc)&Title::Draw,
+		(int)EDrawPrio::eScene
+	);
 }
 
 Title::~Title()

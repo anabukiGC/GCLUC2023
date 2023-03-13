@@ -13,9 +13,16 @@ Game::Game() :Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 	new YIwa(CVector3D(800, -1000, 0));
 }
 
+Game::~Game()
+{
+	if (m_drawTask)delete m_drawTask;
+}
+
 void Game::Update(float deltatime)
 {
 	if (PUSH(CInput::eButton2))
-	{
+	{		
+		Delete();
+		new Title();
 	}
 }
