@@ -16,8 +16,6 @@ public:
 	YIwa(const CVector3D& pos);
 	//Task仕様に変更
 	void Update(float deltatime);
-	//影を使用しないためオーバーライド
-	void DrawShadow();
 };
 
 //ObjectBase仕様

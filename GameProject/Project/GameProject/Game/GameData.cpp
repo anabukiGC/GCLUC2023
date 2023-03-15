@@ -1,2 +1,2 @@
 #include "GameData.h"
-float GameData::km = 0;
+float GameData::life = 3;

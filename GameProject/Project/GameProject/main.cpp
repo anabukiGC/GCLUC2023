@@ -91,6 +91,7 @@ void Init(void)
 	ADD_RESOURCE("Statekage", CImage::CreateImage("Image/Statekage.png"));
 	ADD_RESOURCE("Endkage", CImage::CreateImage("Image/Endkage.png"));
 	ADD_RESOURCE("title", CImage::CreateImage("Image/Title.png"));
+	ADD_RESOURCE("life", CImage::CreateImage("Image/life.png"));
 //TaskédólÇ…ïœçX
 	new Title();
 

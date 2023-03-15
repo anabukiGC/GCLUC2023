@@ -19,7 +19,8 @@ Player::Player(const CVector3D& p, bool flip)
 		//反転フラグ
 		m_flip = flip;
 		//箱形判定の設定(増減は余白分)
-		m_box = CAABB(CVector3D(-267 / 2 + 21, -450, 0), CVector3D(267 / 2 - 36, -19, 267 / 8));
+		//元m_box = CAABB(CVector3D(-267 / 2 + 21, -450, 0), CVector3D(267 / 2 - 36, -19, 267 / 8));
+		m_box = CAABB(CVector3D(-267 / 2 + 21, -410, 0), CVector3D(267 / 2 - 36, -19, 267 / 8));
 		//矩形判定の設定
 		//m_rect = CRect(-32, -128, 32, 0);
 		//通常状態へ
@@ -79,7 +80,7 @@ void Player::Update(float deltatime)
 void Player::StateRun()
 {
 	static int move_speed = 20;
-	static int jump_pow = 15;
+	static int jump_pow = 13;//元15
 	//m_pos_old = m_pos;
 	m_pos.x += move_speed;
 	//移動
@@ -129,6 +130,9 @@ void Player::StateDamage()
 	if (m_img.CheckAnimationEnd())
 	{
 		invincibility = 120;
+		if (GameData::life > 0) {
+			GameData::life -= 1;
+		}
 		m_state = eState_Run;//走行状態に戻る
 		//Delete();//削除テスト
 	}
