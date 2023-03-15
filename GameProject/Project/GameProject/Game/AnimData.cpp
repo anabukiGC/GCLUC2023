@@ -13,15 +13,15 @@ static TexAnim playerRun[] = {
 	{8,4},
 };
 static TexAnim playerJumpUp[] = {
+	{9,4},
+	{10,4},
+	{11,4},
 	{12,4},
-	{13,4},
-	{14,4},
-	{15,4},
 };
 static TexAnim playerJumpDown[] = {
-	{16,10},
-	{17,10},
-	{18,8},
+	{13,10},
+	{14,10},
+	{15,8},
 	/*
 	{8,4},
 	{6,4},
@@ -31,15 +31,15 @@ static TexAnim playerJumpDown[] = {
 };
 
 static TexAnim playerDamage[] = {
+	{18,4},
+	{23,1},
 	{19,4},
-	{9,1},
-	{20,4},
-	{9,1},
-	{21,14},
-	{9,1},
+	{23,1},
+	{20,14},
+	{23,1},
+	{21,4},
+	{23,1},
 	{22,4},
-	{9,1},
-	{23,4},
 };
 
 TexAnimData player_anim_data[] = {
