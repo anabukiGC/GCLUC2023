@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "AnimData.h"
 #include "Field.h"
+#include "GameData.h"
 
 Player::Player(const CVector3D& p, bool flip)
 	:ObjectBase((int)ETaskPrio::ePlayer, (int)ETaskTag::ePlayer)

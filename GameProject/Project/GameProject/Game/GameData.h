@@ -1,5 +1,5 @@
 #pragma once
 
 class GameData {
-	static int km;
+	static float km;
 };
