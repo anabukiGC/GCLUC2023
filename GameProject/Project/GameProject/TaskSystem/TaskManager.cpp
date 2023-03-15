@@ -1,5 +1,4 @@
 #include"TaskManager.h"
-#include <GLLibrary.h>
 
 
 TaskManager* TaskManager::ms_instance = nullptr;
@@ -102,6 +101,16 @@ void TaskManager::RemoveTask(Task* task)
 
 	task->m_prev = nullptr;
 	task->m_next = nullptr;
+}
+
+void TaskManager::AllRemoveTask()
+{
+	Task* next = m_head;
+	while (next != nullptr)
+	{
+		next->m_kill = true;
+		next = next->m_next;
+	}
 }
 
 //XVˆ—

@@ -100,7 +100,7 @@ void Init(void)
 	new XIwa(CVector3D(600, 0, 0));
 	new YIwa(CVector3D(800, -1000, 0));*/
 
-
+	
 
 
 }

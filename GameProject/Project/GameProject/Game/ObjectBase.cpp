@@ -53,7 +53,7 @@ const CVector3D& ObjectBase::GetPos() const
 
 void ObjectBase::SetDrawPriority(int prio)
 {
-	
+	m_drawTask->SetPriority(prio);
 }
 
 void ObjectBase::Update(float deltaTime)

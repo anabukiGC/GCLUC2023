@@ -3,6 +3,7 @@
 #include"Field.h"
 #include"Gimmick.h"
 #include"GimmickManager.h"
+#include"../TaskSystem/TaskManager.h"
 #include"../Title/Title.h"
 
 Game::Game() :Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
@@ -24,7 +25,7 @@ void Game::Update(float deltatime)
 {
 	if (PUSH(CInput::eButton2))
 	{		
-		Delete();
+		TaskManager::Instance()->AllRemoveTask();
 		new Title();
 	}
 }

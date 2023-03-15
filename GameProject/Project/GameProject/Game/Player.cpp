@@ -96,6 +96,7 @@ void Player::StateRun()
 		m_vec.y = -jump_pow;
 		m_is_ground = false;
 	}
+		
 
 	//ダメージモーション確認用(後で消す)
 	if (PUSH(CInput::eButton1))

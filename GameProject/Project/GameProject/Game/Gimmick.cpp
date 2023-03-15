@@ -10,8 +10,8 @@ Hari::Hari(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETask
 }
 
 void Hari::Update(float deltatime) {
-	static int move_speed = 9;
-	m_pos.x -= move_speed;
+	static int move_speed = 6;
+	//m_pos.x -= move_speed;
 }
 
 //‰e‚Í•`‰æ‚µ‚È‚¢

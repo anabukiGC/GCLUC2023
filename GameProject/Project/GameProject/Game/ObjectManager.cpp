@@ -112,7 +112,7 @@ void ObjectManager::Sort()
 		while (right != nullptr && loopCount > 0)
 		{
 			//キャラクターのZ座標を見てソート
-			if (left->m_pos.z > right->m_pos.z)
+			if (left->m_pos.z < right->m_pos.z)
 			{
 				left->m_next = right->m_next;
 				right->m_prev = left->m_prev;
