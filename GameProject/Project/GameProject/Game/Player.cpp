@@ -32,11 +32,14 @@ Player::Player(const CVector3D& p, bool flip)
 		m_damage_no = -1;
 		//ヒットポイント
 		m_hp = 100;
+		//無敵時間
+		invincibility = 0;
 }
 
 //Task使用
 void Player::Update(float deltatime)
 {
+	invincibility--;
 	switch (m_state)
 	{
 	case eState_Run://走行状態
@@ -98,13 +101,6 @@ void Player::StateRun()
 		m_vec.y = -jump_pow;
 		m_is_ground = false;
 	}
-		
-
-	//ダメージモーション確認用(後で消す)
-	if (PUSH(CInput::eButton1))
-	{
-		m_state = eState_Damage;
-	}
 
 	//ジャンプ中
 	if (!m_is_ground)
@@ -132,6 +128,7 @@ void Player::StateDamage()
 	//アニメーション終了時
 	if (m_img.CheckAnimationEnd())
 	{
+		invincibility = 120;
 		m_state = eState_Run;//走行状態に戻る
 		//Delete();//削除テスト
 	}
@@ -148,7 +145,7 @@ void Player::Collision(ObjectBase* b)
 	switch (b->GetTag())
 	{
 	case (int)ETaskTag::eGimick:
-		if (CollisionAABB(this, b))
+		if (CollisionAABB(this, b) && invincibility <= 0)
 		{
 			m_state = eState_Damage;
 		}

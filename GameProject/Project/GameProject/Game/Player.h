@@ -22,6 +22,8 @@ private:
 	int m_damage_no;
 	//ヒットポイント
 	int m_hp;
+	//無敵時間
+	int invincibility;
 
 	//各状態での挙動
 	void StateRun();
