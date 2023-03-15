@@ -57,9 +57,9 @@ XIwa::XIwa(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETask
 	m_img = COPY_RESOURCE("Iwa", CImage);
 	m_pos = pos;
 	//中心位置設定
-	m_img.SetCenter(224 / 2, 224);
-	m_box = CAABB(CVector3D(-224 / 2 + 37, -224 + 34, 0), CVector3D(224 / 2 - 32, - 34, 224 / 2 - 70));
-
+	m_img.SetCenter(224 / 2, 224-30);
+	//m_box = CAABB(CVector3D(-224 / 2 + 37, -224 + 34, 0), CVector3D(224 / 2 - 32, -34, 224 / 2 - 70));
+	  m_box = CAABB(CVector3D(-224 / 2 + 37, -224 + 64, 0), CVector3D(224 / 2 - 32, -4, 224 / 2 - 70));
 }
 
 //Task使用	

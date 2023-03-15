@@ -10,6 +10,7 @@ GimmickManager::GimmickManager()
 }
 
 void GimmickManager::Update(float deletetime){
+	srand(time(NULL));
 	m_time++;
 	if (m_time > 120) {
 		int type = rand() % 3;
