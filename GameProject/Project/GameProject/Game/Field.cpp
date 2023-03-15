@@ -32,9 +32,10 @@ void Field::Draw()
 	//m_sky.Draw();
 	//スクロール値をそのまま使用
 	sc = ObjectBase::m_scroll.x;
-	m_town.SetRect(sc, 0, sc + 1980, 1200);
+	//画像データと同じ数値
+	m_town.SetRect(sc, 0, sc + 2200, 1200);
 	m_town.Draw();
 
-	m_foreground.SetRect(sc, 0, sc + 1980, 1200);
+	m_foreground.SetRect(sc, 0, sc + 2200, 1200);
 	m_foreground.Draw();
 }
