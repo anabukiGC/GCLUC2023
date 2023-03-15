@@ -86,8 +86,8 @@ void Init(void)
 	ADD_RESOURCE("Town", CImage::CreateImage("Image/pik.png"));
 	ADD_RESOURCE("ForeGround", CImage::CreateImage("Image/piy.png"));
 	ADD_RESOURCE("Player", CImage::CreateImage("Image/player.png", player_anim_data, 267, 450));
-	ADD_RESOURCE("Hari", CImage::CreateImage("Image/hari_test.png"));
-	ADD_RESOURCE("Iwa", CImage::CreateImage("Image/iwa_test.png"));
+	ADD_RESOURCE("Hari", CImage::CreateImage("Image/hari.png"));
+	ADD_RESOURCE("Iwa", CImage::CreateImage("Image/iwa.png"));
 	ADD_RESOURCE("Statekage", CImage::CreateImage("Image/Statekage.png"));
 	ADD_RESOURCE("Endkage", CImage::CreateImage("Image/Endkage.png"));
 	ADD_RESOURCE("title", CImage::CreateImage("Image/Title.png"));
