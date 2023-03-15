@@ -3,6 +3,7 @@
 #include"Field.h"
 #include"Gimmick.h"
 #include"GimmickManager.h"
+#include"UI/UI.h"
 #include"../Title/Title.h"
 
 Game::Game() :Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
@@ -10,6 +11,7 @@ Game::Game() :Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 	new Player(CVector3D(200, 0, 0), false);
 	new Field();
 	new GimmickManager();
+	new UI(CVector2D(500,500));
 	//new Hari(CVector3D(400, 0, 0));
 	//new XIwa(CVector3D(600, 0, 0));
 	//new YIwa(CVector3D(800, -1000, 0));
