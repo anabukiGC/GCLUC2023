@@ -6,8 +6,7 @@ public:
 public:
 	Hari(const CVector3D& pos);
 	void Update(float deltatime);
-	//影を描画しないためオーバーライド
-	void DrawShadow();
+	
 };
 
 //ObjectBase使用
@@ -27,8 +26,7 @@ public:
 public:
 	XIwa(const CVector3D& pos);
 	void Update(float deltatime);
-//影を使用しないためオーバーライド
-	void DrawShadow();
+
 
 };
 

@@ -30,7 +30,7 @@ ObjectBase::ObjectBase(int prio,int tag)
 		(int)EDrawPrio::eShadow
 	);
 	//‰e‚Ìİ’è(‰e‚Ì‰æ‘œ‚à•ÏX‚ ‚è)
-	CVector2D shadowSize = CVector2D(192, 48);
+	CVector2D shadowSize = CVector2D(164, 40);
 	m_shadowImage = COPY_RESOURCE("Statekage", CImage);
 	m_shadowImage.SetSize(shadowSize);
 	m_shadowImage.SetCenter(CVector2D(shadowSize.x * 0.5f, shadowSize.y * 0.5f));
@@ -74,7 +74,7 @@ void ObjectBase::Draw()
 	m_img.Draw();
 #ifdef _DEBUG
 	//“–‚½‚è”»’è‹éŒ`‚Ì•\¦
-	//DrawRect()
+	DrawRect();
 #endif
 }
 

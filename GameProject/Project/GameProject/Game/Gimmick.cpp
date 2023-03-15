@@ -1,5 +1,6 @@
 #include "Gimmick.h"
 #include "Field.h"
+#include "../Game/ObjectBase.h"
 //#include"GameData.h"
 //ObjectBase使用
 Hari::Hari(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETaskTag::eGimick) {
@@ -7,16 +8,16 @@ Hari::Hari(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETask
 	m_pos = pos;
 	//中心位置設定
 	m_img.SetCenter(44 / 2, 74);
+	//箱形設定(増減は余白分)
+	m_box = CAABB(CVector3D(-44 / 2, -77, 0), CVector3D(44 / 2, 77, 44 / 4));
 }
 
 void Hari::Update(float deltatime) {
-	static int move_speed = 6;
+	//static int move_speed = 6;
 	//m_pos.x -= move_speed;
-}
-
-//影は描画しない
-void Hari::DrawShadow()
-{
+	if (ObjectBase::m_scroll.x + X_MIN + -500 > m_pos.x) {
+		Delete();
+	}
 }
 
 //ObjectBase使用
@@ -36,10 +37,13 @@ void YIwa::Update(float deltatime) {
 	if (m_pos.y < 0) {
 		m_pos.y += move_speed;
 		//m_pos.x += GameData::move_speed;
-		m_pos.x += 6;
+		//m_pos.x += 6;
 	}
 	//ObjectBase::Update(deltatime);
 	ObjectBase::Update(deltatime);
+	if (ObjectBase::m_scroll.x + X_MIN + -500 > m_pos.x) {
+		Delete();
+	}
 
 }
 
@@ -54,6 +58,7 @@ XIwa::XIwa(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETask
 	m_pos = pos;
 	//中心位置設定
 	m_img.SetCenter(224 / 2, 224);
+	m_box = CAABB(CVector3D(-224 / 2 + 37, -224 + 34, 0), CVector3D(224 / 2 - 32, 224 / 2 - 34, 224 / 4 - 70));
 
 }
 
@@ -64,10 +69,7 @@ void XIwa::Update(float deltatime) {
 	
 	//ObjectBase::Update(deltatime);
 	ObjectBase::Update(deltatime);
-
-}
-
-//影は描画しない
-void XIwa::DrawShadow() 
-{
+	if (ObjectBase::m_scroll.x + X_MIN + -500 > m_pos.x) {
+		Delete();
+	}
 }

@@ -14,7 +14,8 @@ Player::Player(const CVector3D& p, bool flip)
 		//m_pos_old = m_pos = p ;
 		m_pos = p ;
 		//中心位置設定
-		m_img.SetCenter(267/2, 450);
+		//元m_img.SetCenter(267/2, 450);
+		m_img.SetCenter(267/2, 430);
 		//反転フラグ
 		m_flip = flip;
 		//箱形判定の設定(増減は余白分)
