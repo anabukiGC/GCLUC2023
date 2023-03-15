@@ -17,6 +17,11 @@ UI::UI()
 	);
 }
 
+UI::~UI()
+{
+	if (m_drawTask)delete m_drawTask;
+}
+
 void UI::Update(float Deletetime)
 {
 	m_m = GameData::PXtoM(ObjectBase::m_scroll.x);

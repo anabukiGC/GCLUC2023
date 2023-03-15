@@ -7,6 +7,7 @@ class UI :public Task {
 	CFont m_title_text;
 public:
 	UI();
+	~UI();
 	void Update(float Deletetime);
 	void Draw();
 };
