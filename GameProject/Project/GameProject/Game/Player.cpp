@@ -75,13 +75,13 @@ void Player::Update(float deltatime)
 
 void Player::StateRun()
 {
-	static int move_speed = 6;
+	static int move_speed = 20;
 	static int jump_pow = 15;
 	//m_pos_old = m_pos;
 	m_pos.x += move_speed;
 	//ˆÚ“®
 	if (HOLD(CInput::eRight))
-		m_pos.x += move_speed;
+		m_pos.x += move_speed/2;
 	else if (HOLD(CInput::eLeft))
 		m_pos.x -= move_speed;
 	if (HOLD(CInput::eUp))
