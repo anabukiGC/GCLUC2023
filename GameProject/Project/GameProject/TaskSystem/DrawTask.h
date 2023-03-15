@@ -12,6 +12,8 @@ enum class EDrawPrio
 	eShadow,
 	eChara,
 
+	eUI,
+
 	Num
 
 };

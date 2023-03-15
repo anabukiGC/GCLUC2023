@@ -1,4 +1,5 @@
 #include"ObjectBase.h"
+#include"../Game/GameData.h"
 #include"ObjectManager.h"
 #define Z_CENTER 432
 //スクロール値はここへ移植
