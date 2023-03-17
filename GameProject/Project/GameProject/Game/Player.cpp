@@ -2,6 +2,7 @@
 #include "AnimData.h"
 #include "Field.h"
 #include "GameData.h"
+#include"Filta.h"
 #include"../TaskSystem/TaskManager.h"
 #include"../Title/Title.h"
 

@@ -8,6 +8,7 @@ enum class ETaskPrio
 	eDefault,
 	eScene,
 
+	eFilta,
 	eUI,
 	ePlayer,
 	eGimmick,
@@ -26,6 +27,7 @@ enum class ETaskTag
 	eGimmickManager,
 	eObjectManager,
 	eField,
+	eFilta,
 	eScene,
 	eUI,
 };

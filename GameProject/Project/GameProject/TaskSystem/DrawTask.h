@@ -11,6 +11,7 @@ enum class EDrawPrio
 	eField,
 	eShadow,
 	eChara,
+	eFilta,
 
 	eUI,
 
