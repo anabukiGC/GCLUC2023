@@ -26,11 +26,13 @@ UI::~UI()
 void UI::Update(float Deletetime)
 {
 	m_m = GameData::PXtoM(ObjectBase::m_scroll.x);
+	m_score = GameData::score;
 }
 
 void UI::Draw()
 {
 	m_title_text.Draw(1500, 100, 255, 255, 255, "%d m", m_m);
+	m_title_text.Draw(1500, 200, 255, 255, 255, "sc.%d", m_score);
 	//ÉnÅ[Ég(hp)
 	int life = GameData::life;
 	for (int i = 0; i < life; i++) {

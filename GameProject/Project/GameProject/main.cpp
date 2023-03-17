@@ -96,6 +96,7 @@ void Init(void)
 	ADD_RESOURCE("filta", CImage::CreateImage("Image/filta3.png"));
 	ADD_RESOURCE("Ana", CImage::CreateImage("Image/Ana.png"));
 	ADD_RESOURCE("Ana2", CImage::CreateImage("Image/Ana2.png"));
+	ADD_RESOURCE("Juel", CImage::CreateImage("Image/Juel.png"));
 
 
 //TaskédólÇ…ïœçX
