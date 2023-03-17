@@ -50,6 +50,9 @@
     <ClCompile Include="Game\Filta.cpp">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Item.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Game">
@@ -116,6 +119,9 @@
       <Filter>UI</Filter>
     </ClInclude>
     <ClInclude Include="Game\Filta.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Item.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,7 @@
 #include "GimmickManager.h"
 #include "ObjectBase.h"
 #include "Gimmick.h"
+#include "Item.h"
 
 GimmickManager::GimmickManager()
 	:Task((int)ETaskPrio::eGimmickManager,(int)ETaskTag::eGimmickManager)
@@ -9,7 +10,7 @@ GimmickManager::GimmickManager()
 
 }
 
-void GimmickManager::Update(float deletetime){
+void GimmickManager::Update(float deletetime) {
 	m_time++;
 	if (m_time > 60) {
 		int type = rand() % 4;
@@ -23,7 +24,8 @@ void GimmickManager::Update(float deletetime){
 			new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
 			break;
 		case 1:
-			new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+			//new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+			new Item(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]), 0);
 			break;
 		case 2:
 			switch (htype) {
@@ -156,7 +158,7 @@ void GimmickManager::Update(float deletetime){
 				new Hari(CVector3D(ObjectBase::m_scroll.x + 2450, 0, z[r] - 50));
 				new Hari(CVector3D(ObjectBase::m_scroll.x + 2400, 0, z[r] - 100));
 				new Hari(CVector3D(ObjectBase::m_scroll.x + 2450, 0, z[r] - 100));
-				
+
 				break;
 			case 2:
 				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] + 100));
@@ -193,9 +195,9 @@ void GimmickManager::Update(float deletetime){
 				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] - 100));
 				break;
 			}
-			case 4:
-				new Ana(CVector3D(ObjectBase::m_scroll.x + 800, 0, 800));
-				break;
+		case 4:
+			new Ana(CVector3D(ObjectBase::m_scroll.x + 800, 0, 800));
+			break;
 		}
 		m_time = 0;
 	}

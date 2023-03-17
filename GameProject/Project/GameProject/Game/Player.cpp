@@ -193,6 +193,13 @@ void Player::Collision(ObjectBase* b)
 			
 		}
 		break;
+	case (int)ETaskTag::eItem:
+		if (CollisionAABB(this, b))
+		{
+			GameData::score += 100;
+			b->Delete();
+		}
+		break;
 	case (int)ETaskTag::eFall:
 		if (CollisionAABB(this, b))
 		{
