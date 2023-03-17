@@ -67,3 +67,21 @@ void XIwa::Update(float deltatime) {
 		Delete();
 	}
 }
+
+//ObjectBase使用
+Ana::Ana(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eFall, (int)ETaskTag::eFall) {
+	//m_img = COPY_RESOURCE("Ana", CImage);
+	m_img = COPY_RESOURCE("Ana2", CImage);
+	m_pos = pos;
+	//中心位置設定
+	m_img.SetCenter(415 / 2, 0);
+	//m_box = CAABB(CVector3D(340, -30, -600), CVector3D(400, 10, -400));
+	m_box = CAABB(CVector3D(340, -30, -600), CVector3D(341, 10, -400));
+}
+
+//Task使用	
+void Ana::Update(float deltatime) {
+	if (ObjectBase::m_scroll.x + X_MIN + -500 > m_pos.x) {
+		Delete();
+	}
+}

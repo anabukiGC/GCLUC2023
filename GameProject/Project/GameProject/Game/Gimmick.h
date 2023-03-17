@@ -28,3 +28,12 @@ public:
 
 };
 
+//ObjectBaseédól
+class Ana : public ObjectBase {
+public:
+public:
+	Ana(const CVector3D& pos);
+	void Update(float deltatime);
+
+
+};

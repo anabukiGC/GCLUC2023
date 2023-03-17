@@ -42,9 +42,36 @@ static TexAnim playerDamage[] = {
 	{22,4},
 };
 
+static TexAnim playerFall[] = {
+	/*{27,4},
+	{28,4},
+	{29,4},
+	{30,4},
+	{31,4},
+	{32,4},
+	{33,4},
+	{34,4},
+	{35,4},
+	{26,4},*/
+
+	//ÉRÉ~ÉJÉã
+	{27,60},
+	{28,2},
+	{29,2},
+	{30,60},
+	{31,2},
+	{32,2},
+	{33,2},
+	{34,2},
+	{35,2},
+	{26,4},
+
+};
+
 TexAnimData player_anim_data[] = {
 	ANIMDATA(playerRun),
 	ANIMDATA(playerJumpUp),
 	ANIMDATA(playerJumpDown),
 	ANIMDATA(playerDamage),
+	ANIMDATA(playerFall),
 };

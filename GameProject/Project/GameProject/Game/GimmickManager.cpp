@@ -12,7 +12,7 @@ GimmickManager::GimmickManager()
 void GimmickManager::Update(float deletetime){
 	m_time++;
 	if (m_time > 60) {
-		int type = rand() % 3;
+		int type = rand() % 4;
 		int htype = rand() % 3;
 		int r = rand() % 3;
 		int xr = rand() % 3;
@@ -193,7 +193,9 @@ void GimmickManager::Update(float deletetime){
 				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] - 100));
 				break;
 			}
-			break;
+			case 4:
+				new Ana(CVector3D(ObjectBase::m_scroll.x + 800, 0, 800));
+				break;
 		}
 		m_time = 0;
 	}

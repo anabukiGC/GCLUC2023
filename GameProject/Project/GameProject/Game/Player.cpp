@@ -54,6 +54,10 @@ void Player::Update(float deltatime)
 		break;
 	case eState_Down://ダウン状態
 		StateDown();
+		break;
+	case eState_Fall://落下状態
+		StateFall();
+		break;
 	}
 	
 	//アニメーション更新
@@ -156,6 +160,21 @@ void Player::StateDown()
 	}
 	m_scroll.x += 6 / 2;
 }
+
+void Player::StateFall()
+{
+	m_img.ChangeAnimation(eAnimFall, false);
+	//アニメーション終了時
+	if (m_img.CheckAnimationEnd())
+	{
+		if (GameData::life > 0) {
+			GameData::life -= 3;
+		}
+		Delete();//削除テスト
+	}
+	m_scroll.x += 0;
+}
+
 //BaseからObjectBase仕様に変更
 void Player::Collision(ObjectBase* b)
 {
@@ -172,6 +191,12 @@ void Player::Collision(ObjectBase* b)
 				m_state = eState_Down;
 			}
 			
+		}
+		break;
+	case (int)ETaskTag::eFall:
+		if (CollisionAABB(this, b))
+		{
+			m_state = eState_Fall;
 		}
 		break;
 	}

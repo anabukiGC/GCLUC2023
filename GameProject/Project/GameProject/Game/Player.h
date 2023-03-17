@@ -8,7 +8,8 @@ private:
 		eState_Run,
 		eState_Attack,
 		eState_Damage,
-		eState_Down
+		eState_Down,
+		eState_Fall,
 	};
 	//ó‘Ô•Ï”
 	int m_state;
@@ -27,9 +28,9 @@ private:
 
 	//Šeó‘Ô‚Å‚Ì‹““®
 	void StateRun();
-	void StateAttack();
 	void StateDamage();
 	void StateDown();
+	void StateFall();
 
 public:
 	Player(const CVector3D& p, bool flip);
