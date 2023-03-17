@@ -2,6 +2,8 @@
 #include "AnimData.h"
 #include "Field.h"
 #include "GameData.h"
+#include"../TaskSystem/TaskManager.h"
+#include"../Title/Title.h"
 
 Player::Player(const CVector3D& p, bool flip)
 	:ObjectBase((int)ETaskPrio::ePlayer, (int)ETaskTag::ePlayer)
@@ -32,7 +34,7 @@ Player::Player(const CVector3D& p, bool flip)
 		//ダメージ番号
 		m_damage_no = -1;
 		//ヒットポイント
-		m_hp = 100;
+		m_hp = 2;
 		//無敵時間
 		invincibility = 0;
 }
@@ -133,6 +135,7 @@ void Player::StateDamage()
 		if (GameData::life > 0) {
 			GameData::life -= 1;
 		}
+		m_hp -= 1;
 		m_state = eState_Run;//走行状態に戻る
 		//Delete();//削除テスト
 	}
@@ -141,6 +144,16 @@ void Player::StateDamage()
 
 void Player::StateDown()
 {
+	m_img.ChangeAnimation(eAnimDamage, false);
+	//アニメーション終了時
+	if (m_img.CheckAnimationEnd())
+	{
+		if (GameData::life > 0) {
+			GameData::life -= 1;
+		}
+		Delete();//削除テスト
+	}
+	m_scroll.x += 6 / 2;
 }
 //BaseからObjectBase仕様に変更
 void Player::Collision(ObjectBase* b)
@@ -151,7 +164,13 @@ void Player::Collision(ObjectBase* b)
 	case (int)ETaskTag::eGimick:
 		if (CollisionAABB(this, b) && invincibility <= 0)
 		{
-			m_state = eState_Damage;
+			if (m_hp > 0) {
+				m_state = eState_Damage;
+			}
+			else {
+				m_state = eState_Down;
+			}
+			
 		}
 		break;
 	}

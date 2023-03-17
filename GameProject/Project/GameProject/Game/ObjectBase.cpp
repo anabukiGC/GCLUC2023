@@ -75,7 +75,7 @@ void ObjectBase::Draw()
 	m_img.Draw();
 #ifdef _DEBUG
 	//“–‚½‚è”»’è‹éŒ`‚Ì•\Ž¦
-	DrawRect();
+	//DrawRect();
 #endif
 }
 

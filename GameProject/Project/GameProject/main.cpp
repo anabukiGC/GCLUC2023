@@ -94,7 +94,7 @@ void Init(void)
 	ADD_RESOURCE("life", CImage::CreateImage("Image/life.png"));
 //TaskédólÇ…ïœçX
 	new Title();
-
+	srand(time(NULL));
 	/*new Player(CVector3D(200, 0, 0), false);
 	new Field();
 	new Hari(CVector3D(400, 0, 0));

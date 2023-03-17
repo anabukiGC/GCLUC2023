@@ -10,14 +10,13 @@ GimmickManager::GimmickManager()
 }
 
 void GimmickManager::Update(float deletetime){
-	srand(time(NULL));
 	m_time++;
-	if (m_time > 120) {
+	if (m_time > 60) {
 		int type = rand() % 3;
 		int htype = rand() % 3;
 		int r = rand() % 3;
 		int xr = rand() % 3;
-		float x[3] = { 500,650,800 };
+		float x[3] = { 800,1300,1800 };
 		float z[3] = { 0,200,400 };
 		switch (type) {
 		case 0:
