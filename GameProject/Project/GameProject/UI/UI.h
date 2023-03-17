@@ -12,3 +12,15 @@ public:
 	void Update(float Deletetime);
 	void Draw();
 };
+
+class UI2 : public Task {
+	DrawTask* m_drawTask;
+	CImage m_clear;
+	CImage m_over;
+	int UI_Type;
+public:
+	UI2(int ui_type);
+	~UI2();
+	void Update(float Deletetime);
+	void Draw();
+};

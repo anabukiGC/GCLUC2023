@@ -92,10 +92,11 @@ void Init(void)
 	ADD_RESOURCE("Endkage", CImage::CreateImage("Image/Endkage.png"));
 	ADD_RESOURCE("title", CImage::CreateImage("Image/Title.png"));
 	ADD_RESOURCE("life", CImage::CreateImage("Image/life.png"));
-	ADD_RESOURCE("filta2", CImage::CreateImage("Image/filta2.png"));
-	ADD_RESOURCE("filta", CImage::CreateImage("Image/filta.png"));
+	ADD_RESOURCE("filta2", CImage::CreateImage("Image/filta5.png"));
+	ADD_RESOURCE("filta", CImage::CreateImage("Image/filta3.png"));
 	ADD_RESOURCE("Ana", CImage::CreateImage("Image/Ana.png"));
 	ADD_RESOURCE("Ana2", CImage::CreateImage("Image/Ana2.png"));
+
 
 //TaskédólÇ…ïœçX
 	new Title();

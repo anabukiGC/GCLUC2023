@@ -3,6 +3,7 @@
 #include "Field.h"
 #include "GameData.h"
 #include"Filta.h"
+#include"../UI/UI.h"
 #include"../TaskSystem/TaskManager.h"
 #include"../Title/Title.h"
 
@@ -156,6 +157,7 @@ void Player::StateDown()
 		if (GameData::life > 0) {
 			GameData::life -= 1;
 		}
+		new UI2(0);
 		Delete();//íœƒeƒXƒg
 	}
 	m_scroll.x += 6 / 2;

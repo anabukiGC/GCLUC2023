@@ -14,7 +14,7 @@ public:
 
 class Filta2 : public Task {
 private:
-	CImage m_filta;
+	CImage m_filta2;
 	DrawTask* m_drawTask;
 public:
 	//コンストラクタ
