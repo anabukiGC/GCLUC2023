@@ -7,4 +7,5 @@ private:
 public:
 	Item(const CVector3D& pos, int juel_type);
 	void Update(float deltatime);
+	void Collision(ObjectBase* b);
 };

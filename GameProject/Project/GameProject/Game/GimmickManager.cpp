@@ -17,6 +17,7 @@ void GimmickManager::Update(float deletetime) {
 		int type = rand() % 4;
 		int htype = rand() % 3;
 		int ytype = rand() % 4;
+		int jtype = rand() % 5;//宝石の種類
 		int r = rand() % 3;
 		int xr = rand() % 3;
 		int rx = rand() % 3;
@@ -89,7 +90,7 @@ void GimmickManager::Update(float deletetime) {
 		case 1://X岩
 			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
 				//new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
-				new Item(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]), 0);
+				new Item(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]), jtype);
 			}
 			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 200) {//500
 				switch (ytype) {
@@ -465,6 +466,8 @@ void GimmickManager::Update(float deletetime) {
 			break;
 		}
 		m_time = 0;
+		//デバッグ用
+		new Item(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]), jtype);
 	}
 
 	m_time2++;

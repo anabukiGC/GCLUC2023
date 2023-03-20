@@ -60,6 +60,7 @@ void Filta2::Draw()
 
 ClearFilta::ClearFilta() :Task((int)ETaskPrio::eFilta, (int)ETaskTag::eFilta)
 {
+	SOUND("SE_Clear")->Play(false);
 	m_clearfilta = COPY_RESOURCE("clearfilta", CImage);
 	m_clearlogo = COPY_RESOURCE("clearlogo", CImage);
 	m_drawTask = new DrawTask
@@ -87,6 +88,7 @@ void ClearFilta::Draw()
 
 OverFilta::OverFilta() :Task((int)ETaskPrio::eFilta, (int)ETaskTag::eFilta)
 {
+	SOUND("SE_Gameover")->Play(false);
 	m_overfilta = COPY_RESOURCE("overfilta", CImage);
 	m_overlogo = COPY_RESOURCE("overlogo", CImage);
 	m_drawTask = new DrawTask

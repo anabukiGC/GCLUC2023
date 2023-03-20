@@ -34,6 +34,7 @@ private:
 
 public:
 	Player(const CVector3D& p, bool flip);
+	~Player();
 	//Task仕様
 	void Update(float deltatime);
 	//ObjectBase仕様

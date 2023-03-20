@@ -10,6 +10,7 @@
 
 Game::Game() :Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 {
+	SOUND("BGM_Game")->Play(true);
 	new Player(CVector3D(200, 0, 0), false);
 	new Field();
 	new GimmickManager();
@@ -26,7 +27,7 @@ Game::~Game()
 void Game::Update(float deltatime)
 {
 	if (PUSH(CInput::eButton2))
-	{		
+	{
 		TaskManager::Instance()->AllRemoveTask();
 		new Title();
 	}

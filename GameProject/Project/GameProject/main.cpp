@@ -108,6 +108,19 @@ void Init(void)
 	ADD_RESOURCE("Juel", CImage::CreateImage("Image/Juel.png"));
 	ADD_RESOURCE("Sna", CImage::CreateImage("Image/Sna.png"));
 
+	//BGM
+	SOUND("BGM_Title")->Load("Sound/BGM/BGM_Title.wav",1);
+	SOUND("BGM_Game")->Load("Sound/BGM/BGM_Game.wav", 1);
+
+	//SE
+	SOUND("SE_Start")->Load("Sound/SE/SE_Start.wav", 1);
+	SOUND("SE_Clear")->Load("Sound/SE/SE_Clear.wav", 1);
+	SOUND("SE_Gameover")->Load("Sound/SE/SE_Gameover.wav", 1);
+
+	SOUND("SE_Jump")->Load("Sound/SE/SE_Jump.wav", 1);
+	SOUND("SE_Getjuel")->Load("Sound/SE/SE_Getjuel.wav", 10);
+	SOUND("SE_Damage")->Load("Sound/SE/SE_Damage.wav", 1);
+	SOUND("SE_Fall")->Load("Sound/SE/SE_Fall.wav", 1);
 
 //Taskd—l‚É•ÏX
 	new Title();

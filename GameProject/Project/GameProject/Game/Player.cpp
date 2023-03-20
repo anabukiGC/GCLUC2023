@@ -42,6 +42,11 @@ Player::Player(const CVector3D& p, bool flip)
 		invincibility = 0;
 }
 
+Player::~Player()
+{
+	SOUND("BGM_Game")->Pause();
+}
+
 //Task使用
 void Player::Update(float deltatime)
 {
@@ -109,6 +114,7 @@ void Player::StateRun()
 	//ジャンプ
 	if (PUSH(CInput::eButton5)&&m_is_ground)
 	{
+		SOUND("SE_Jump")->Play(false);
 		m_vec.y = -jump_pow;
 		m_is_ground = false;
 	}
@@ -175,6 +181,10 @@ void Player::StateDown()
 void Player::StateFall()
 {
 	m_img.ChangeAnimation(eAnimFall, false);
+	if (m_img.GetIndex() == 3)
+	{
+		SOUND("SE_Fall")->Play(false);
+	}
 	//アニメーション終了時
 	if (m_img.CheckAnimationEnd())
 	{
@@ -196,6 +206,7 @@ void Player::Collision(ObjectBase* b)
 	case (int)ETaskTag::eGimick:
 		if (CollisionAABB(this, b) && invincibility <= 0)
 		{
+			SOUND("SE_Damage")->Play(false);
 			if (m_hp > 0) {
 				m_state = eState_Damage;
 			}
@@ -203,13 +214,6 @@ void Player::Collision(ObjectBase* b)
 				m_state = eState_Down;
 			}
 			
-		}
-		break;
-	case (int)ETaskTag::eItem:
-		if (CollisionAABB(this, b))
-		{
-			GameData::score += 100;
-			b->Delete();
 		}
 		break;
 	case (int)ETaskTag::eFall:

@@ -4,6 +4,7 @@
 
 Title::Title():Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 {
+	SOUND("BGM_Title")->Play(true);
 	m_title = COPY_RESOURCE("title", CImage);
 	m_titlelogo = COPY_RESOURCE("titlelogo", CImage);
 	m_titlebotan = COPY_RESOURCE("titlebotan", CImage);
@@ -17,6 +18,7 @@ Title::Title():Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 
 Title::~Title()
 {
+	SOUND("BGM_Title")->Pause();
 	if (m_drawTask)delete m_drawTask;
 }
 
@@ -24,6 +26,7 @@ void Title::Update(float deltatime)
 {
 	ObjectBase::m_scroll.x += 1;
 	if (PUSH(CInput::eButton1)) {
+		SOUND("SE_Start")->Play(false);
 		new Game();
 		ObjectBase::m_scroll.x = 0;
 		Delete();
