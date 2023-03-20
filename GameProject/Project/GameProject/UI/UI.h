@@ -6,6 +6,7 @@ class UI :public Task {
 	int m_score;
 	int m_km;
 	CImage m_life;
+	CImage s_score;
 	CFont m_title_text;
 public:
 	UI();

@@ -149,6 +149,7 @@ void Player::StateRun()
 	//ƒXƒNƒ[ƒ‹İ’è
 	m_scroll.x += move_speed;
 	if (GameData::Clear) {
+		SOUND("BGM_Game")->Pause();
 		m_state = eState_Clear;
 	}
 }

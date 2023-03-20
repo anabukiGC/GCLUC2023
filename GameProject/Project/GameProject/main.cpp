@@ -109,6 +109,9 @@ void Init(void)
 	ADD_RESOURCE("Ana2", CImage::CreateImage("Image/Ana2.png"));
 	ADD_RESOURCE("Juel", CImage::CreateImage("Image/Juel.png"));
 	ADD_RESOURCE("Sna", CImage::CreateImage("Image/Sna.png"));
+	ADD_RESOURCE("ao", CImage::CreateImage("Image/ao.png"));
+	ADD_RESOURCE("aka", CImage::CreateImage("Image/aka.png"));
+	ADD_RESOURCE("kin", CImage::CreateImage("Image/kin.png"));
 
 	//BGM
 	SOUND("BGM_Title")->Load("Sound/BGM/BGM_Title.wav",1);
