@@ -88,6 +88,7 @@ void Player::Update(float deltatime)
 
 void Player::StateRun()
 {
+	GameData::UIwa = 0;
 	static int move_speed = 20;
 	static int jump_pow = 13;//Œ³15
 	//m_pos_old = m_pos;
@@ -188,7 +189,7 @@ void Player::StateFall()
 //Base‚©‚çObjectBased—l‚É•ÏX
 void Player::Collision(ObjectBase* b)
 {
-
+	GameData::UIwa = 1;
 	switch (b->GetTag())
 	{
 	case (int)ETaskTag::eGimick:

@@ -466,4 +466,19 @@ void GimmickManager::Update(float deletetime) {
 		}
 		m_time = 0;
 	}
+
+	m_time2++;
+	if (m_time2 > 30) {
+		int r2 = rand() % 3;
+		int ry2 = rand() % 3;
+		int rz2 = rand() % 2;
+		//float x2[3] = { 500,650,800 };
+		float x2[3] = { -200,-100,0 };
+		float y2[3] = { -1000,-1200,-1400 };
+		float z2[2] = { 800,0 };
+		new UIwa(CVector3D(ObjectBase::m_scroll.x + -500, y2[ry2], z2[rz2]));
+		//new UIwa(CVector3D(ObjectBase::m_scroll.x + -100, -1000, z2[rz2]));
+		m_time2 = 0;
+	}
+
 }

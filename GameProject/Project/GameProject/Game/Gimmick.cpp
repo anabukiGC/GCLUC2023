@@ -1,8 +1,39 @@
 #include "Gimmick.h"
 #include "Field.h"
 #include "../Game/ObjectBase.h"
-//#include"GameData.h"
+#include"GameData.h"
 //ObjectBaseŽg—p
+UIwa::UIwa(const CVector3D& pos)
+	:ObjectBase((int)ETaskPrio::eUI, (int)ETaskTag::eUI)
+{
+	m_img = COPY_RESOURCE("Iwa", CImage);
+	m_pos = pos;
+	m_img.SetCenter(224 / 2, 224 / 2);
+}
+
+void UIwa::Update(float deltatime)
+{
+	static int move_speed = 20;
+	m_pos.y += move_speed;
+	if (GameData::UIwa == 0) {
+		int x = 1 + rand() % 15;
+		m_pos.x += x;
+	}
+	ObjectBase::Update(deltatime);
+	if (0 <= m_pos.y && m_pos.z == 800) {
+		//m_pos.y -= move_speed;
+	}
+	else if (100 <= m_pos.y && m_pos.z == 0 || ObjectBase::m_scroll.x + X_MIN + -500 > m_pos.x) {
+		Delete();
+	}
+}
+
+//‰e‚Í•`‰æ‚µ‚È‚¢
+void UIwa::DrawShadow()
+{
+
+}
+
 Hari::Hari(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETaskTag::eGimick) {
 	m_img = COPY_RESOURCE("Hari", CImage);
 	m_pos = pos;
@@ -84,4 +115,10 @@ void Ana::Update(float deltatime) {
 	if (ObjectBase::m_scroll.x + X_MIN + -500 > m_pos.x) {
 		Delete();
 	}
+}
+
+//‰e‚Í•`‰æ‚µ‚È‚¢
+void Ana::DrawShadow()
+{
+
 }

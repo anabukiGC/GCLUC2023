@@ -1,6 +1,15 @@
 #pragma once
 //ObjectBase使用
 #include"ObjectBase.h"
+
+class UIwa :public ObjectBase {
+public:
+	UIwa(const CVector3D& pos);
+	void Update(float deltatime);
+	//影を描画しないためオーバーライド
+	void DrawShadow();
+};
+
 class Hari : public ObjectBase{
 public:
 public:
@@ -34,6 +43,7 @@ public:
 public:
 	Ana(const CVector3D& pos);
 	void Update(float deltatime);
-
+	//影を描画しないためオーバーライド
+	void DrawShadow();
 
 };
