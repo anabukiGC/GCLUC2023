@@ -152,7 +152,6 @@ void Player::StateDamage()
 	//アニメーション終了時
 	if (m_img.CheckAnimationEnd())
 	{
-		invincibility = 120;
 		if (GameData::life > 0) {
 			GameData::life -= 1;
 		}
@@ -206,6 +205,7 @@ void Player::Collision(ObjectBase* b)
 	case (int)ETaskTag::eGimick:
 		if (CollisionAABB(this, b) && invincibility <= 0)
 		{
+			invincibility = 120+34;//無敵時間+ダメージモーション時間
 			SOUND("SE_Damage")->Play(false);
 			if (m_hp > 0) {
 				m_state = eState_Damage;

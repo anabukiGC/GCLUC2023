@@ -12,7 +12,7 @@ Item::Item(const CVector3D& pos, int juel_type) :ObjectBase((int)ETaskPrio::eIte
 	//íÜêSà íuê›íË
 	m_img.SetCenter(174 / 2, 174);
 	//î†å`ê›íË
-	m_box = CAABB(CVector3D(-174 / 2 + 30, -174 + 15, 0), CVector3D(174 / 2 - 27, 0 - 64, 174 / 4));
+	m_box = CAABB(CVector3D(-175 / 2 + 30, -175 + 66, 0), CVector3D(175 / 2 - 27, 0 - 16, 175 / 4));
 }
 
 void Item::Update(float deltatime) {
