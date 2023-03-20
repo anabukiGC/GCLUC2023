@@ -5,6 +5,7 @@
 #include"GimmickManager.h"
 #include"UI/UI.h"
 #include"Filta.h"
+#include"GameData.h"
 #include"../TaskSystem/TaskManager.h"
 #include"../Title/Title.h"
 
@@ -26,9 +27,23 @@ Game::~Game()
 
 void Game::Update(float deltatime)
 {
-	if (PUSH(CInput::eButton2))
+	/*if (PUSH(CInput::eButton2))
+	{
+		TaskManager::Instance()->AllRemoveTask();
+		new Title();
+	}*/
+
+	//–â‘è“_
+	if (PUSH(CInput::eButton2) && GameData::life <= 0)
 	{
 		TaskManager::Instance()->AllRemoveTask();
 		new Title();
 	}
+	/*if (PUSH(CInput::eButton1) && GameData::life <= 0)
+	{
+		TaskManager::Instance()->AllRemoveTask();
+		GameData::life = 3;
+		ObjectBase::m_scroll.x = 0;
+		new Game();
+	}*/
 }

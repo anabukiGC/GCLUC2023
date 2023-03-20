@@ -24,10 +24,13 @@ public:
 	void Draw();
 };
 
+//ゲームクリアのフィルター
 class ClearFilta : public Task {
 private:
 	CImage m_clearfilta;
 	CImage m_clearlogo;
+	CImage m_end;
+	CImage m_continue;
 	DrawTask* m_drawTask;
 public:
 	ClearFilta();
@@ -36,10 +39,13 @@ public:
 	void Draw();
 };
 
+//ゲームオーバのフィルター
 class OverFilta : public Task {
 private:
 	CImage m_overfilta;
 	CImage m_overlogo;
+	CImage m_end;
+	CImage m_continue;
 	DrawTask* m_drawTask;
 public:
 	OverFilta();

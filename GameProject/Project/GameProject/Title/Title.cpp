@@ -1,5 +1,6 @@
 #include "Title.h"
 #include"Game/Game.h"
+#include"../Game/GameData.h"
 #include"../Game/ObjectBase.h"
 
 Title::Title():Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
@@ -28,6 +29,7 @@ void Title::Update(float deltatime)
 	if (PUSH(CInput::eButton1)) {
 		SOUND("SE_Start")->Play(false);
 		new Game();
+		GameData::life = 3;
 		ObjectBase::m_scroll.x = 0;
 		Delete();
 	}

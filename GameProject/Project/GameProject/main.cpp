@@ -102,6 +102,8 @@ void Init(void)
 	ADD_RESOURCE("clearlogo", CImage::CreateImage("Image/clearlogo.png"));
 	ADD_RESOURCE("overfilta", CImage::CreateImage("Image/overfilta.png"));
 	ADD_RESOURCE("overlogo", CImage::CreateImage("Image/overlogo.png"));
+	ADD_RESOURCE("end", CImage::CreateImage("Image/end.png"));
+	ADD_RESOURCE("continue", CImage::CreateImage("Image/continue.png"));
 
 	ADD_RESOURCE("Ana", CImage::CreateImage("Image/Ana.png"));
 	ADD_RESOURCE("Ana2", CImage::CreateImage("Image/Ana2.png"));
