@@ -2,6 +2,7 @@
 #include "ObjectBase.h"
 #include "Gimmick.h"
 #include "Item.h"
+#include "GameData.h"
 
 GimmickManager::GimmickManager()
 	:Task((int)ETaskPrio::eGimmickManager,(int)ETaskTag::eGimmickManager)
@@ -12,191 +13,455 @@ GimmickManager::GimmickManager()
 
 void GimmickManager::Update(float deletetime) {
 	m_time++;
-	if (m_time > 60) {
+	if (m_time > 120) {
 		int type = rand() % 4;
 		int htype = rand() % 3;
+		int ytype = rand() % 4;
 		int r = rand() % 3;
 		int xr = rand() % 3;
-		float x[3] = { 800,1300,1800 };
+		int rx = rand() % 3;
+		int rz = rand() % 3;
+		float x[3] = { 500,650,800 };
 		float z[3] = { 0,200,400 };
+		int axr = rand() % 2;
+		int azr = rand() % 2;
+		float ax[2] = { 600,1200 };
+		float az[3] = { 1000,800,600 };
 		switch (type) {
-		case 0:
-			new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
-			break;
-		case 1:
-			//new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
-			new Item(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]), 0);
-			break;
-		case 2:
-			switch (htype) {
-			case 0:
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] + 350));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] + 350));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] + 300));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] + 300));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] + 250));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] + 250));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] + 200));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] + 200));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] + 150));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] + 150));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] - 150));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] - 150));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] - 200));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] - 200));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] - 250));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] - 250));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] - 300));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] - 300));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[1] - 350));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[1] - 350));
-
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] + 350));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] + 350));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] + 300));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] + 300));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] + 250));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] + 250));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] + 200));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] + 200));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] + 150));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] + 150));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] - 150));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] - 150));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] - 200));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] - 200));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] - 250));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] - 250));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] - 300));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] - 300));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[1] - 350));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[1] - 350));
-				break;
-			case 1:
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r] - 100));
-
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r] - 100));
-
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] - 100));
-
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2200, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2250, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2200, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2250, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2200, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2250, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2200, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2250, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2200, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2250, 0, z[r] - 100));
-
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2300, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2350, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2300, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2350, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2300, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2350, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2300, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2350, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2300, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2350, 0, z[r] - 100));
-
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2400, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2450, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2400, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2450, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2400, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2450, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2400, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2450, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2400, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2450, 0, z[r] - 100));
-
-				break;
-			case 2:
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 1950, 0, z[r] - 100));
-
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2000, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2050, 0, z[r] - 100));
-
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] + 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] + 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r]));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] - 50));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2100, 0, z[r] - 100));
-				new Hari(CVector3D(ObjectBase::m_scroll.x + 2150, 0, z[r] - 100));
+		case 0://YŠâ
+			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
+				new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
+			}
+			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 200) {//500
+				switch (ytype) {
+				case 0:
+					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
+					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[(r + rz) % 3]));
+					break;
+				case 1:
+					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+					break;
+				case 2:
+					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
+					switch (htype) {
+					case 0:
+						for (int j = 0; j <= 1; j++) {
+							for (int i = 0; i <= 15; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							}
+						}
+						break;
+					case 1:
+						for (int j = 0; j <= 5; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					case 2:
+						for (int j = 0; j <= 2; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					}
+					break;
+				case 3:
+					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
+					new Ana(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], 0, z[(r + rz) % 3]));
+					break;
+				}
 				break;
 			}
-		case 4:
-			new Ana(CVector3D(ObjectBase::m_scroll.x + 800, 0, 800));
+			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 100) {//250
+				new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
+				new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[(r + rz) % 3]));
+			}
+			else {
+				new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
+			}
+			break;
+		case 1://XŠâ
+			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
+				//new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+				new Item(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]), 0);
+			}
+			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 200) {//500
+				switch (ytype) {
+				case 0:
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+					break;
+				case 1:
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], -800, z[(r + rz) % 3]));
+					break;
+				case 2:
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+					switch (htype) {
+					case 0:
+						for (int j = 0; j <= 1; j++) {
+							for (int i = 0; i <= 15; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							}
+						}
+						break;
+					case 1:
+						for (int j = 0; j <= 5; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					case 2:
+						for (int j = 0; j <= 2; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					}
+					break;
+				case 3:
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+					new Ana(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], 0, z[(r + rz) % 3]));
+					break;
+				}
+				break;
+			}
+			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 100) {//250
+				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+			}
+			else {
+				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+			}
+			break;
+		case 2://j
+			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
+				switch (htype) {
+				case 0:
+					for (int j = 0; j <= 1; j++) {
+						for (int i = 0; i <= 15; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+						}
+					}
+					break;
+				case 1:
+					for (int j = 0; j <= 5; j++) {
+						for (int i = 0; i <= 4; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+						}
+					}
+					break;
+				case 2:
+					for (int j = 0; j <= 2; j++) {
+						for (int i = 0; i <= 4; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+						}
+					}
+					break;
+				}
+				break;
+			}
+			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 200) {//500
+				switch (ytype) {
+				case 0:
+					switch (htype) {
+					case 0:
+						for (int j = 0; j <= 1; j++) {
+							for (int i = 0; i <= 15; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							}
+						}
+						break;
+					case 1:
+						for (int j = 0; j <= 5; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					case 2:
+						for (int j = 0; j <= 2; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					}
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+					break;
+				case 1:
+					switch (htype) {
+					case 0:
+						for (int j = 0; j <= 1; j++) {
+							for (int i = 0; i <= 15; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							}
+						}
+						break;
+					case 1:
+						for (int j = 0; j <= 5; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					case 2:
+						for (int j = 0; j <= 2; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					}
+					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], -800, z[(r + rz) % 3]));
+					break;
+				case 2:
+					switch (htype) {
+					case 0:
+						for (int j = 0; j <= 1; j++) {
+							for (int i = 0; i <= 15; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							}
+						}
+						break;
+					case 1:
+						for (int j = 0; j <= 5; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					case 2:
+						for (int j = 0; j <= 2; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					}
+					switch (htype) {
+					case 0:
+						for (int j = 0; j <= 1; j++) {
+							for (int i = 0; i <= 15; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100) + x[xr], 0, z[1] + 350 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100) + x[xr], 0, z[1] + 350 - (50 * i)));
+							}
+						}
+						break;
+					case 1:
+						for (int j = 0; j <= 5; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100) + x[xr] + 100, 0, z[(r + rz) % 3] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100) + x[xr] + 100, 0, z[(r + rz) % 3] + 100 - (50 * i)));
+							}
+						}
+						break;
+					case 2:
+						for (int j = 0; j <= 2; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100) + x[xr], 0, z[(r + rz) % 3] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100) + x[xr], 0, z[(r + rz) % 3] + 100 - (50 * i)));
+							}
+						}
+						break;
+					}
+					break;
+				case 3:
+					switch (htype) {
+					case 0:
+						for (int j = 0; j <= 1; j++) {
+							for (int i = 0; i <= 15; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							}
+						}
+						break;
+					case 1:
+						for (int j = 0; j <= 5; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					case 2:
+						for (int j = 0; j <= 2; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					}
+					new Ana(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], 0, z[(r + rz) % 3]));
+					break;
+				}
+				break;
+			}
+			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 100) {//250
+				switch (htype) {
+				case 0:
+					for (int j = 0; j <= 1; j++) {
+						for (int i = 0; i <= 15; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+						}
+					}
+					break;
+				case 1:
+					for (int j = 0; j <= 5; j++) {
+						for (int i = 0; i <= 4; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+						}
+					}
+					break;
+				case 2:
+					for (int j = 0; j <= 2; j++) {
+						for (int i = 0; i <= 4; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+						}
+					}
+					break;
+				}
+				switch (htype) {
+				case 0:
+					for (int j = 0; j <= 1; j++) {
+						for (int i = 0; i <= 15; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100) + x[xr], 0, z[1] + 350 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100) + x[xr], 0, z[1] + 350 - (50 * i)));
+						}
+					}
+					break;
+				case 1:
+					for (int j = 0; j <= 5; j++) {
+						for (int i = 0; i <= 4; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100) + x[xr] + 100, 0, z[(r + rz) % 3] + 100 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100) + x[xr] + 100, 0, z[(r + rz) % 3] + 100 - (50 * i)));
+						}
+					}
+					break;
+				case 2:
+					for (int j = 0; j <= 2; j++) {
+						for (int i = 0; i <= 4; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100) + x[xr], 0, z[(r + rz) % 3] + 100 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100) + x[xr], 0, z[(r + rz) % 3] + 100 - (50 * i)));
+						}
+					}
+					break;
+				}
+				break;
+			}
+			else {
+				switch (htype) {
+				case 0:
+					for (int j = 0; j <= 1; j++) {
+						for (int i = 0; i <= 15; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+						}
+					}
+					break;
+				case 1:
+					for (int j = 0; j <= 5; j++) {
+						for (int i = 0; i <= 4; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+						}
+					}
+					break;
+				case 2:
+					for (int j = 0; j <= 2; j++) {
+						for (int i = 0; i <= 4; i++) {
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+						}
+					}
+					break;
+				}
+				break;
+			}
+			break;
+		case 3://—Ž‚Æ‚µŒŠ
+			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
+				new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
+			}
+			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 200) {//500
+				switch (ytype) {
+				case 0:
+					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
+					break;
+				case 1:
+					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
+					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[(r + rz) % 3]));
+					break;
+				case 2:
+					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+					break;
+				case 3:
+					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
+					switch (htype) {
+					case 0:
+						for (int j = 0; j <= 1; j++) {
+							for (int i = 0; i <= 15; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[1] + 350 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[1] + 350 - (50 * i)));
+							}
+						}
+						break;
+					case 1:
+						for (int j = 0; j <= 5; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					case 2:
+						for (int j = 0; j <= 2; j++) {
+							for (int i = 0; i <= 4; i++) {
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1900 + (j * 100), 0, z[r] + 100 - (50 * i)));
+								new Hari(CVector3D(ObjectBase::m_scroll.x + 1950 + (j * 100), 0, z[r] + 100 - (50 * i)));
+							}
+						}
+						break;
+					}
+					break;
+				}
+				break;
+			}
+			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 100) {//250
+				new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
+				new Ana(CVector3D(ObjectBase::m_scroll.x + ax[(azr + rx) % 3], 0, az[(azr + rz) % 3]));
+			}
+			else {
+				new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
+			}
 			break;
 		}
 		m_time = 0;

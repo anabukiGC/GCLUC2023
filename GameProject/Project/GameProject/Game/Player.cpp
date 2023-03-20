@@ -6,6 +6,7 @@
 #include"../UI/UI.h"
 #include"../TaskSystem/TaskManager.h"
 #include"../Title/Title.h"
+#include "Effect.h"
 
 Player::Player(const CVector3D& p, bool flip)
 	:ObjectBase((int)ETaskPrio::ePlayer, (int)ETaskTag::ePlayer)
@@ -126,6 +127,13 @@ void Player::StateRun()
 	else
 	{
 		m_img.ChangeAnimation(eAnimRun);
+		static int c = 0;
+		if (c++ % 15 == 0) {
+			new Effect(m_pos);
+			new Effect(m_pos);
+			new Effect(m_pos);
+			new Effect(m_pos);
+		}
 	}
 	//ÉXÉNÉçÅ[Éãê›íË
 	m_scroll.x += move_speed;

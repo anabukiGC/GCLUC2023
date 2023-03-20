@@ -11,6 +11,7 @@ enum class ETaskPrio
 	eFilta,
 	eUI,
 	ePlayer,
+	eEffect,
 	eGimmick,
 	eItem,
 	eFall,
@@ -25,6 +26,7 @@ enum class ETaskPrio
 enum class ETaskTag
 {
 	ePlayer,
+	eEffect,
 	eGimick,
 	eItem,
 	eFall,
