@@ -166,8 +166,8 @@ void Player::StateDown()
 		if (GameData::life > 0) {
 			GameData::life -= 1;
 		}
-		new UI2(0);
 		Delete();//削除テスト
+		new OverFilta();
 	}
 	m_scroll.x += 6 / 2;
 }
@@ -182,6 +182,7 @@ void Player::StateFall()
 			GameData::life -= 3;
 		}
 		Delete();//削除テスト
+		new OverFilta();
 	}
 	m_scroll.x += 0;
 }

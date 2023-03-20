@@ -23,3 +23,27 @@ public:
 	void Update(float deltatime);
 	void Draw();
 };
+
+class ClearFilta : public Task {
+private:
+	CImage m_clearfilta;
+	CImage m_clearlogo;
+	DrawTask* m_drawTask;
+public:
+	ClearFilta();
+	~ClearFilta();
+	void Update(float deltatime);
+	void Draw();
+};
+
+class OverFilta : public Task {
+private:
+	CImage m_overfilta;
+	CImage m_overlogo;
+	DrawTask* m_drawTask;
+public:
+	OverFilta();
+	~OverFilta();
+	void Update(float deltatime);
+	void Draw();
+};

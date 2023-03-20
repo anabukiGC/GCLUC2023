@@ -16,9 +16,6 @@ Game::Game() :Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 	new UI();
 	new Filta();
 	new Filta2();
-	//new Hari(CVector3D(400, 0, 0));
-	//new XIwa(CVector3D(600, 0, 0));
-	//new YIwa(CVector3D(800, -1000, 0));
 }
 
 Game::~Game()

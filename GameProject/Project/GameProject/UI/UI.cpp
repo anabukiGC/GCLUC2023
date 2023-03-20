@@ -41,36 +41,3 @@ void UI::Draw()
 		m_life.Draw();
 	}
 }
-
-UI2::UI2(int ui_type):Task((int)ETaskPrio::eUI, (int)ETaskTag::eUI)
-{
-	UI_Type = ui_type;
-	if (UI_Type == 0) {
-	m_over = COPY_RESOURCE("GameOver", CImage);
-	}
-	else {
-		m_clear = COPY_RESOURCE("GameClear", CImage);
-	}
-	m_drawTask = new DrawTask
-	(
-		this,
-		(DrawFunc)&UI::Draw,
-		(int)EDrawPrio::eUI
-	);
-}
-
-UI2::~UI2()
-{
-	if (m_drawTask)delete m_drawTask;
-}
-
-void UI2::Update(float Deletetime)
-{
-
-}
-
-void UI2::Draw()
-{
-	m_over.Draw();
-	m_over.SetPos(300, 600);
-}

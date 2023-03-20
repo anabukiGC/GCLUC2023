@@ -7,6 +7,7 @@ enum class ETaskPrio
 {
 	eDefault,
 	eScene,
+	eObjectManager,
 
 	eFilta,
 	eUI,
@@ -17,7 +18,6 @@ enum class ETaskPrio
 	eFall,
 
 	eGimmickManager,
-	eObjectManager,
 	eField,
 
 	Num

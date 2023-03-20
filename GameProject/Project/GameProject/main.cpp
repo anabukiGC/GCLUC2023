@@ -90,10 +90,19 @@ void Init(void)
 	ADD_RESOURCE("Iwa", CImage::CreateImage("Image/iwa.png"));
 	ADD_RESOURCE("Statekage", CImage::CreateImage("Image/Statekage.png"));
 	ADD_RESOURCE("Endkage", CImage::CreateImage("Image/Endkage.png"));
+	//タイトル関連
 	ADD_RESOURCE("title", CImage::CreateImage("Image/Title.png"));
+	ADD_RESOURCE("titlelogo", CImage::CreateImage("Image/Titlelogo.png"));
+	ADD_RESOURCE("titlebotan", CImage::CreateImage("Image/botan.png"));
 	ADD_RESOURCE("life", CImage::CreateImage("Image/life.png"));
-	ADD_RESOURCE("filta2", CImage::CreateImage("Image/filta5.png"));
+	//フィルター関連
 	ADD_RESOURCE("filta", CImage::CreateImage("Image/filta3.png"));
+	ADD_RESOURCE("filta2", CImage::CreateImage("Image/filta5.png"));
+	ADD_RESOURCE("clearfilta", CImage::CreateImage("Image/clearfilta.png"));
+	ADD_RESOURCE("clearlogo", CImage::CreateImage("Image/clearlogo.png"));
+	ADD_RESOURCE("overfilta", CImage::CreateImage("Image/overfilta.png"));
+	ADD_RESOURCE("overlogo", CImage::CreateImage("Image/overlogo.png"));
+
 	ADD_RESOURCE("Ana", CImage::CreateImage("Image/Ana.png"));
 	ADD_RESOURCE("Ana2", CImage::CreateImage("Image/Ana2.png"));
 	ADD_RESOURCE("Juel", CImage::CreateImage("Image/Juel.png"));
