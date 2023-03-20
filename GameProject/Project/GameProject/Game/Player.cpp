@@ -65,6 +65,9 @@ void Player::Update(float deltatime)
 	case eState_Fall://落下状態
 		StateFall();
 		break;
+	case eState_Clear:
+		StateClear();
+		break;
 	}
 	
 	//アニメーション更新
@@ -80,10 +83,11 @@ void Player::Update(float deltatime)
 		m_vec.y = 0;
 		m_is_ground = true;
 	}
+	if(m_state != eState_Clear){
 	if (m_scroll.x + X_MIN > m_pos.x)
 		m_pos.x = m_scroll.x + X_MIN;
 	if (m_scroll.x + X_MAX < m_pos.x)
-		m_pos.x = m_scroll.x + X_MAX;
+		m_pos.x = m_scroll.x + X_MAX;}
 	if (m_pos.z > Z_MAX)
 		m_pos.z = Z_MAX;
 	if (m_pos.z < Z_MIN)
@@ -144,6 +148,9 @@ void Player::StateRun()
 	}
 	//スクロール設定
 	m_scroll.x += move_speed;
+	if (GameData::Clear) {
+		m_state = eState_Clear;
+	}
 }
 
 void Player::StateDamage()
@@ -196,31 +203,43 @@ void Player::StateFall()
 	m_scroll.x += 0;
 }
 
+void Player::StateClear()
+{
+	int move_speed = 20;
+	m_pos.x += move_speed;
+	if (m_scroll.x + 1980 == m_pos.x)
+	{
+		new ClearFilta();
+	}
+}
+
 //BaseからObjectBase仕様に変更
 void Player::Collision(ObjectBase* b)
 {
-	GameData::UIwa = 1;
-	switch (b->GetTag())
-	{
-	case (int)ETaskTag::eGimick:
-		if (CollisionAABB(this, b) && invincibility <= 0)
+	if (m_state != eState_Clear) {
+		GameData::UIwa = 1;
+		switch (b->GetTag())
 		{
-			invincibility = 120+34;//無敵時間+ダメージモーション時間
-			SOUND("SE_Damage")->Play(false);
-			if (m_hp > 0) {
-				m_state = eState_Damage;
+		case (int)ETaskTag::eGimick:
+			if (CollisionAABB(this, b) && invincibility <= 0)
+			{
+				invincibility = 120 + 34;//無敵時間+ダメージモーション時間
+				SOUND("SE_Damage")->Play(false);
+				if (m_hp > 0) {
+					m_state = eState_Damage;
+				}
+				else {
+					m_state = eState_Down;
+				}
+
 			}
-			else {
-				m_state = eState_Down;
+			break;
+		case (int)ETaskTag::eFall:
+			if (CollisionAABB(this, b))
+			{
+				m_state = eState_Fall;
 			}
-			
+			break;
 		}
-		break;
-	case (int)ETaskTag::eFall:
-		if (CollisionAABB(this, b))
-		{
-			m_state = eState_Fall;
-		}
-		break;
 	}
 }

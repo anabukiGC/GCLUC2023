@@ -10,6 +10,7 @@ private:
 		eState_Damage,
 		eState_Down,
 		eState_Fall,
+		eState_Clear,
 	};
 	//ó‘Ô•Ï”
 	int m_state;
@@ -31,6 +32,7 @@ private:
 	void StateDamage();
 	void StateDown();
 	void StateFall();
+	void StateClear();
 
 public:
 	Player(const CVector3D& p, bool flip);

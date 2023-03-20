@@ -27,6 +27,9 @@ void UI::Update(float Deletetime)
 {
 	m_m = GameData::PXtoM(ObjectBase::m_scroll.x);
 	m_score = GameData::score;
+	if (m_m >= 100) {
+		GameData::Clear = true;
+	}
 }
 
 void UI::Draw()

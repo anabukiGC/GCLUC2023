@@ -9,3 +9,4 @@ int GameData::juel_score[] = {
 		1000,
 };
 int GameData::UIwa = 0;
+bool GameData::Clear = false;
