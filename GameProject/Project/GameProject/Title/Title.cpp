@@ -46,6 +46,6 @@ void Title::Draw()
 	m_title.Draw();
 	m_titlelogo.SetPos(-100, -100);
 	m_titlelogo.Draw();
-	m_titlebotan.SetPos(-100, -100);
+	m_titlebotan.SetPos(470, 700);
 	m_titlebotan.Draw();
 }
