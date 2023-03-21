@@ -18,6 +18,7 @@ void GimmickManager::Update(float deletetime) {
 		int htype = rand() % 3;
 		int ytype = rand() % 4;
 		int jtype = rand() % 5;//•óÎ‚ÌŽí—Þ
+		int jtype2 = 2 + rand() % 3;//•óÎ‚ÌŽí—Þ
 		int r = rand() % 3;
 		int xr = rand() % 3;
 		int rx = rand() % 3;
@@ -34,7 +35,7 @@ void GimmickManager::Update(float deletetime) {
 		case 0://YŠâ
 			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
 				new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
-				new Item(CVector3D(ObjectBase::m_scroll.x + 1500, 0, z[(r + rz) % 3]), jtype);
+				new Item(CVector3D(ObjectBase::m_scroll.x + 1350, 0, z[(r + rz) % 3]), jtype2);
 			}
 			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 500) {//500
 				switch (ytype) {
@@ -93,7 +94,7 @@ void GimmickManager::Update(float deletetime) {
 		case 1://XŠâ
 			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
 				//new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
-				new Item(CVector3D(ObjectBase::m_scroll.x + 1500, 0, z[r]), jtype);
+				new Item(CVector3D(ObjectBase::m_scroll.x + 1350, 0, z[r]), jtype2);
 			}
 			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 500) {//500
 				switch (ytype) {
@@ -178,7 +179,7 @@ void GimmickManager::Update(float deletetime) {
 					break;
 				}
 				break;
-				new Item(CVector3D(ObjectBase::m_scroll.x + 1500, 0, z[(r + rz) % 3]), jtype);
+				new Item(CVector3D(ObjectBase::m_scroll.x + 1350, 0, z[(r + rz) % 3]), jtype2);
 			}
 			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 500) {//500
 				switch (ytype) {
@@ -414,7 +415,7 @@ void GimmickManager::Update(float deletetime) {
 		case 3://—Ž‚Æ‚µŒŠ
 			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
 				new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
-				new Item(CVector3D(ObjectBase::m_scroll.x + 1500, 0, z[(r + rz) % 3]), jtype);
+				new Item(CVector3D(ObjectBase::m_scroll.x + 1350, 0, z[(r + rz) % 3]), jtype2);
 			}
 			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 500) {//500
 				switch (ytype) {
@@ -475,8 +476,9 @@ void GimmickManager::Update(float deletetime) {
 		}
 		m_time = 0;
 		if (jr == 0) {
-			new Item(CVector3D(ObjectBase::m_scroll.x + 1500, 0, z[r]), jtype);
-		}	}
+			new Item(CVector3D(ObjectBase::m_scroll.x + 1350, 0, z[r]), jtype);
+		}	
+	}
 
 	m_time2++;
 	if (m_time2 > 30) {
