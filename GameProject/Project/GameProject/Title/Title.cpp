@@ -32,6 +32,8 @@ void Title::Update(float deltatime)
 		new Game();
 		GameData::life = 3;
 		ObjectBase::m_scroll.x = 0;
+		GameData::score = 0;
+		GameData::Clear = false;
 		Delete();
 	}
 }

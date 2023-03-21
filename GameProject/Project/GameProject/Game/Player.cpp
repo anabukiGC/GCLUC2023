@@ -206,9 +206,12 @@ void Player::StateFall()
 
 void Player::StateClear()
 {
+	if (m_is_ground) {
+		m_img.ChangeAnimation(eAnimRun);
+	}
 	int move_speed = 20;
 	m_pos.x += move_speed;
-	if (m_scroll.x + 1980 == m_pos.x)
+	if (m_scroll.x + 1980 <= m_pos.x && m_scroll.x + 2000 >= m_pos.x)
 	{
 		new ClearFilta();
 	}

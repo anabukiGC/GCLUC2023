@@ -34,12 +34,19 @@ void Game::Update(float deltatime)
 		new Title();
 	}*/
 
-	//問題点
+	
+	//ゲームオーバでタイトル
 	if (PUSH(CInput::eButton2) && GameData::life <= 0)
 	{
 		TaskManager::Instance()->AllRemoveTask();
 		new Title();
 	}
+	//ゲームクリアでタイトル
+	if (PUSH(CInput::eButton2) && GameData::Clear) {
+		TaskManager::Instance()->AllRemoveTask();
+		new Title();
+	}
+	//問題点
 	/*if (PUSH(CInput::eButton1) && GameData::life <= 0)
 	{
 		TaskManager::Instance()->AllRemoveTask();
