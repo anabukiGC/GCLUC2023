@@ -8,6 +8,8 @@ public:
 	void Update(float deltatime);
 	//影を描画しないためオーバーライド
 	void DrawShadow();
+	//XIwaの影を描画しないためオーバーライド
+	void DrawShadow2();
 };
 
 class Hari : public ObjectBase{
@@ -15,7 +17,8 @@ public:
 public:
 	Hari(const CVector3D& pos);
 	void Update(float deltatime);
-	
+	//XIwaの影を描画しないためオーバーライド
+	void DrawShadow2();
 };
 
 //ObjectBase使用
@@ -25,6 +28,8 @@ public:
 	YIwa(const CVector3D& pos);
 	//Task仕様に変更
 	void Update(float deltatime);
+	//XIwaの影を描画しないためオーバーライド
+	void DrawShadow2();
 };
 
 //ObjectBase仕様
@@ -33,7 +38,8 @@ public:
 public:
 	XIwa(const CVector3D& pos);
 	void Update(float deltatime);
-
+	//影を描画しないためオーバーライド
+	void DrawShadow();
 
 };
 
@@ -45,5 +51,6 @@ public:
 	void Update(float deltatime);
 	//影を描画しないためオーバーライド
 	void DrawShadow();
-
+	//XIwaの影を描画しないためオーバーライド
+	void DrawShadow2();
 };

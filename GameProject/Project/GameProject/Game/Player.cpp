@@ -247,3 +247,9 @@ void Player::Collision(ObjectBase* b)
 		}
 	}
 }
+
+//XIwa‚Ì‰e‚Í•`‰æ‚µ‚È‚¢
+void Player::DrawShadow2()
+{
+
+}

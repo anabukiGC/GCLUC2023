@@ -16,8 +16,13 @@ void UIwa::Update(float deltatime)
 	static int move_speed = 20;
 	m_pos.y += move_speed;
 	if (GameData::UIwa == 0) {
-		int x = 1 + rand() % 15;
-		m_pos.x += x;
+		if (!GameData::Clear) {
+			int x = 1 + rand() % 15;
+			m_pos.x += x;
+		}
+		else {
+			m_pos.x -= 25;
+		}
 	}
 	ObjectBase::Update(deltatime);
 	if (0 <= m_pos.y && m_pos.z == 800) {
@@ -30,6 +35,12 @@ void UIwa::Update(float deltatime)
 
 //‰e‚Í•`‰æ‚µ‚È‚¢
 void UIwa::DrawShadow()
+{
+
+}
+
+//XIwa‚Ì‰e‚Í•`‰æ‚µ‚È‚¢
+void UIwa::DrawShadow2()
 {
 
 }
@@ -49,6 +60,12 @@ void Hari::Update(float deltatime) {
 	if (ObjectBase::m_scroll.x + X_MIN + -500 > m_pos.x) {
 		Delete();
 	}
+}
+
+//XIwa‚Ì‰e‚Í•`‰æ‚µ‚È‚¢
+void Hari::DrawShadow2()
+{
+
 }
 
 //ObjectBaseŽg—p
@@ -78,13 +95,19 @@ void YIwa::Update(float deltatime) {
 
 }
 
+//XIwa‚Ì‰e‚Í•`‰æ‚µ‚È‚¢
+void YIwa::DrawShadow2()
+{
+
+}
+
 //ObjectBaseŽg—p
 XIwa::XIwa(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eGimmick,(int)ETaskTag::eGimick ){
 	m_img = COPY_RESOURCE("Iwa", CImage);
 	m_pos = pos;
 	//’†SˆÊ’uÝ’è
-	m_img.SetCenter(224 / 2, 224 - 30);
-	m_box = CAABB(CVector3D(-224 / 2 + 37, -224 + 64, 0), CVector3D(224 / 2 - 32, -4, 224 / 2 - 70));
+	m_img.SetCenter(224 / 2, 224 / 2);
+	m_box = CAABB(CVector3D(-224 / 2 + 37, -224 + 64 + 82, 0), CVector3D(224 / 2 - 32, -4 + 82, 224 / 2 - 70));
 }
 
 //TaskŽg—p	
@@ -97,6 +120,12 @@ void XIwa::Update(float deltatime) {
 	if (ObjectBase::m_scroll.x + X_MIN + -500 > m_pos.x) {
 		Delete();
 	}
+}
+
+//‰e‚Í•`‰æ‚µ‚È‚¢
+void XIwa::DrawShadow()
+{
+
 }
 
 //ObjectBaseŽg—p
@@ -120,6 +149,12 @@ void Ana::Update(float deltatime) {
 
 //‰e‚Í•`‰æ‚µ‚È‚¢
 void Ana::DrawShadow()
+{
+
+}
+
+//XIwa‚Ì‰e‚Í•`‰æ‚µ‚È‚¢
+void Ana::DrawShadow2()
 {
 
 }

@@ -19,8 +19,13 @@ private:
 	//COPY_RESOUCE‚ðŽg—p‚·‚é‚Ì‚ÅŽÀ‘Ì‚Å
 	CImage m_shadowImage;
 
+	//XIwaŒÀ’è
+	CImage m_shadowImage2;
+
 	DrawTask* m_drawTask;
 	DrawTask* m_shadowDrawTask;
+	//XIwa‚Ì‰e•`‰æ‚ð“o˜^
+	DrawTask* m_shadowDrawTask2;
 
 protected:
 	//COPY_RESOUCE‚ðŽg—p‚·‚é‚Ì‚ÅŽÀ‘Ì‚Å
@@ -55,6 +60,8 @@ public:
 	virtual void Collision(ObjectBase* b){}
 	// ‰e‚ð•`‰æ
 	virtual void DrawShadow();
+	// XIwa‚Ì‰e‚ð•`‰æ
+	virtual void DrawShadow2();
 
 	void DrawRect();
 	//‹éŒ`“¯Žm‚Ì”»’è

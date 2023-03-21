@@ -30,11 +30,26 @@ ObjectBase::ObjectBase(int prio,int tag)
 		(DrawFunc)&ObjectBase::DrawShadow,
 		(int)EDrawPrio::eShadow
 	);
+
+	//XIwaの影描画を登録
+	m_shadowDrawTask2 = new DrawTask
+	(
+		this,
+		(DrawFunc)&ObjectBase::DrawShadow2,
+		(int)EDrawPrio::eShadow
+	);
+
 	//影の設定(影の画像も変更あり)
 	CVector2D shadowSize = CVector2D(164, 40);
 	m_shadowImage = COPY_RESOURCE("Statekage", CImage);
 	m_shadowImage.SetSize(shadowSize);
 	m_shadowImage.SetCenter(CVector2D(shadowSize.x * 0.5f, shadowSize.y * 0.5f));
+
+	//XIwa限定
+	CVector2D shadowSize2 = CVector2D(164, 40);
+	m_shadowImage2 = COPY_RESOURCE("Statekage", CImage);
+	m_shadowImage2.SetSize(shadowSize2);
+	m_shadowImage2.SetCenter(CVector2D(shadowSize2.x * 0.5f, shadowSize2.y * 0.5f));
 }
 
 ObjectBase::~ObjectBase()
@@ -43,6 +58,7 @@ ObjectBase::~ObjectBase()
 	ObjectManager::Instance()->RemoveObject(this);
 	//描画タスク破壊
 	if (m_shadowDrawTask) delete m_shadowDrawTask;
+	if (m_shadowDrawTask2) delete m_shadowDrawTask2;
 	if (m_drawTask) delete m_drawTask;
 
 }
@@ -63,6 +79,12 @@ void ObjectBase::Update(float deltaTime)
 	CVector3D shadowPos(m_pos.x, 0, m_pos.z);
 	//キャラクターと同じ計算
 	m_shadowImage.SetPos(GetScreenPos(shadowPos));
+	
+	//XIwa限定
+	//影の位置(XIwaの高さで計算)
+	CVector3D shadowPos2(m_pos.x, 224 / 3, m_pos.z);
+	//キャラクターと同じ計算
+	m_shadowImage2.SetPos(GetScreenPos(shadowPos2));
 }
 
 void ObjectBase::Draw()
@@ -84,6 +106,14 @@ void ObjectBase::DrawShadow()
 	//影の描画
 	m_shadowImage.Draw();
 }
+
+void ObjectBase::DrawShadow2()
+{
+	//XIwaの影の描画
+	m_shadowImage2.Draw();
+
+}
+
 //小山さんのデバッグ矩形描画を移植
 void ObjectBase::DrawRect()
 {

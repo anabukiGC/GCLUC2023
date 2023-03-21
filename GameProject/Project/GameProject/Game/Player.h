@@ -41,4 +41,6 @@ public:
 	void Update(float deltatime);
 	//ObjectBase仕様
 	void Collision(ObjectBase* b);
+	//XIwaの影を描画しないためオーバーライド
+	void DrawShadow2();
 };

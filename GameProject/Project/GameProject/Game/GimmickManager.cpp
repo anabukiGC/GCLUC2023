@@ -14,7 +14,8 @@ GimmickManager::GimmickManager()
 void GimmickManager::Update(float deletetime) {
 	m_time++;
 	if (m_time > 120) {
-		int type = rand() % 4;
+		//int type = rand() % 4;
+		int type = 4;
 		int htype = rand() % 3;
 		int ytype = rand() % 4;
 		int jtype = rand() % 5;//ïÛêŒÇÃéÌóﬁ
@@ -24,6 +25,7 @@ void GimmickManager::Update(float deletetime) {
 		int rz = rand() % 3;
 		float x[3] = { 500,650,800 };
 		float z[3] = { 0,200,400 };
+		float xz[3] = { 0 + 112,200 + 112,400 + 112 };
 		int axr = rand() % 2;
 		int azr = rand() % 2;
 		float ax[2] = { 600,1200 };
@@ -41,7 +43,7 @@ void GimmickManager::Update(float deletetime) {
 					break;
 				case 1:
 					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
-					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[(r + rz) % 3]));
 					break;
 				case 2:
 					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
@@ -89,21 +91,21 @@ void GimmickManager::Update(float deletetime) {
 			break;
 		case 1://Xä‚
 			if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 750) {//750
-				//new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+				//new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
 				new Item(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]), jtype);
 			}
 			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 200) {//500
 				switch (ytype) {
 				case 0:
-					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
-					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[(r + rz) % 3]));
 					break;
 				case 1:
-					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
 					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], -800, z[(r + rz) % 3]));
 					break;
 				case 2:
-					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
 					switch (htype) {
 					case 0:
 						for (int j = 0; j <= 1; j++) {
@@ -132,18 +134,18 @@ void GimmickManager::Update(float deletetime) {
 					}
 					break;
 				case 3:
-					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
 					new Ana(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], 0, z[(r + rz) % 3]));
 					break;
 				}
 				break;
 			}
 			else if (GameData::PXtoM(ObjectBase::m_scroll.x) >= 100) {//250
-				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
-				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
+				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[(r + rz) % 3]));
 			}
 			else {
-				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]));
+				new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
 			}
 			break;
 		case 2://êj
@@ -205,7 +207,7 @@ void GimmickManager::Update(float deletetime) {
 						}
 						break;
 					}
-					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[(r + rz) % 3]));
 					break;
 				case 1:
 					switch (htype) {
@@ -422,7 +424,7 @@ void GimmickManager::Update(float deletetime) {
 					break;
 				case 2:
 					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
-					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[(r + rz) % 3]));
+					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[(r + rz) % 3]));
 					break;
 				case 3:
 					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
@@ -463,6 +465,9 @@ void GimmickManager::Update(float deletetime) {
 			else {
 				new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
 			}
+			break;
+		case 4:
+			new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
 			break;
 		}
 		m_time = 0;
