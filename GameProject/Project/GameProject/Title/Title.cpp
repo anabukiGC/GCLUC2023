@@ -5,6 +5,7 @@
 
 Title::Title():Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 {
+	SOUND("BGM_Title")->Volume(0.3);
 	SOUND("BGM_Title")->Play(true);
 	m_title = COPY_RESOURCE("title", CImage);
 	m_titlelogo = COPY_RESOURCE("titlelogo", CImage);

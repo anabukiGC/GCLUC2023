@@ -466,8 +466,7 @@ void GimmickManager::Update(float deletetime) {
 			break;
 		}
 		m_time = 0;
-		//デバッグ用
-		new Item(CVector3D(ObjectBase::m_scroll.x + 1900, 0, z[r]), jtype);
+		new Item(CVector3D(ObjectBase::m_scroll.x + 1700, 0, z[r]), jtype);
 	}
 
 	m_time2++;

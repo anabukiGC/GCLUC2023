@@ -127,6 +127,8 @@ void Init(void)
 	SOUND("SE_Damage")->Load("Sound/SE/SE_Damage.wav", 1);
 	SOUND("SE_Fall")->Load("Sound/SE/SE_Fall.wav", 1);
 
+	SOUND("SE_Hole")->Load("Sound/SE/SE_Hole.wav", 10);
+
 //Taskd—l‚É•ÏX
 	new Title();
 	srand(time(NULL));

@@ -11,6 +11,7 @@
 
 Game::Game() :Task((int)ETaskPrio::eScene,(int)ETaskTag::eScene)
 {
+	SOUND("BGM_Game")->Volume(0.3);
 	SOUND("BGM_Game")->Play(true);
 	new Player(CVector3D(200, 0, 0), false);
 	new Field();

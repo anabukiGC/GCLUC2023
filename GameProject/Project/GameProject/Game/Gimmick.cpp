@@ -101,6 +101,7 @@ void XIwa::Update(float deltatime) {
 
 //ObjectBaseŽg—p
 Ana::Ana(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eFall, (int)ETaskTag::eFall) {
+	SOUND("SE_Hole")->Play(false);
 	//m_img = COPY_RESOURCE("Ana", CImage);
 	m_img = COPY_RESOURCE("Ana2", CImage);
 	m_pos = pos;
