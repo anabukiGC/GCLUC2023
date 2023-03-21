@@ -29,7 +29,7 @@ void UI::Update(float Deletetime)
 {
 	m_m = GameData::PXtoM(ObjectBase::m_scroll.x);
 	m_score = GameData::score;
-	if (m_m >= 100) {
+	if (m_m >= 1000) {
 		GameData::Clear = true;
 	}
 }
@@ -41,6 +41,7 @@ void UI::Draw()
 	
 	if (GameData::life > 0 && GameData::Clear == false) {
 		m_title_text.Draw(1500, 200, 255, 255, 255, "sc.");
+		m_title_text.Draw(1245, 300, 255, 255, 255, "ハイスコア.");
 		//ハート(hp)
 		int life = GameData::life;
 		for (int i = 0; i < life; i++) {
@@ -55,6 +56,15 @@ void UI::Draw()
 			s_score.SetRect(16 * s, 0, 16 * s + 16, 32);
 			s_score.SetSize(16 * 2, 32 * 2);
 			s_score.SetPos(1600 + 16 * 2 * i, 150);
+			s_score.Draw();
+		}
+
+		int mscore = GameData::Max;
+		for (int i = 6; i > 0; i--, mscore /= 10) {
+			int ms = mscore % 10;
+			s_score.SetRect(16 * ms, 0, 16 * ms + 16, 32);
+			s_score.SetSize(16 * 2, 32 * 2);
+			s_score.SetPos(1600 + 16 * 2 * i, 250);
 			s_score.Draw();
 		}
 	}

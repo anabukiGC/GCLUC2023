@@ -1,6 +1,7 @@
 #include "GameData.h"
 float GameData::life = 3;
 float GameData::score = 0;
+int GameData::Max = 0;
 int GameData::juel_score[] = {
 		100,
 		300,
