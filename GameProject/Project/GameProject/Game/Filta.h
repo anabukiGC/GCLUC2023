@@ -31,6 +31,8 @@ private:
 	CImage m_clearlogo;
 	CImage m_end;
 	CImage m_continue;
+	CImage s_score;
+	int m_score;
 	DrawTask* m_drawTask;
 public:
 	ClearFilta();
@@ -46,6 +48,8 @@ private:
 	CImage m_overlogo;
 	CImage m_end;
 	CImage m_continue;
+	CImage s_score;
+	int m_score;
 	DrawTask* m_drawTask;
 public:
 	OverFilta();

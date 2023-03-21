@@ -1,5 +1,6 @@
 #include"Filta.h"
 #include"ObjectBase.h"
+#include"GameData.h"
 
 Filta::Filta() :Task((int)ETaskPrio::eFilta, (int)ETaskTag::eFilta)
 {
@@ -66,6 +67,7 @@ ClearFilta::ClearFilta() :Task((int)ETaskPrio::eFilta, (int)ETaskTag::eFilta)
 	m_clearlogo = COPY_RESOURCE("clearlogo", CImage);
 	m_end = COPY_RESOURCE("end", CImage);
 	m_continue = COPY_RESOURCE("continue", CImage);
+	s_score = COPY_RESOURCE("ao", CImage);
 	m_drawTask = new DrawTask
 	(this,
 		(DrawFunc)&ClearFilta::Draw,
@@ -94,6 +96,15 @@ void ClearFilta::Draw()
 
 	m_end.SetPos(650, 800);
 	m_end.Draw();
+
+	int score = GameData::score;
+	for (int i = 6; i > 0; i--, score /= 10) {
+		int s = score % 10;
+		s_score.SetRect(16 * s, 0, 16 * s + 16, 32);
+		s_score.SetSize(32 * 2, 64 * 2);
+		s_score.SetPos(1000 + 32 * 2 * i, 750);
+		s_score.Draw();
+	}
 }
 
 //ゲームオーバのフィルター
@@ -104,6 +115,7 @@ OverFilta::OverFilta() :Task((int)ETaskPrio::eFilta, (int)ETaskTag::eFilta)
 	m_overlogo = COPY_RESOURCE("overlogo", CImage);
 	m_end = COPY_RESOURCE("end", CImage);
 	m_continue = COPY_RESOURCE("continue", CImage);
+	s_score = COPY_RESOURCE("aka", CImage);
 	m_drawTask = new DrawTask
 	(this,
 		(DrawFunc)&OverFilta::Draw,
@@ -132,4 +144,13 @@ void OverFilta::Draw()
 
 	m_end.SetPos(650, 800);
 	m_end.Draw();
+
+	int score = GameData::score;
+	for (int i = 6; i > 0; i--, score /= 10) {
+		int s = score % 10;
+		s_score.SetRect(16 * s, 0, 16 * s + 16, 32);
+		s_score.SetSize(32 * 2, 64 * 2);
+		s_score.SetPos(1000 + 32 * 2 * i, 750);
+		s_score.Draw();
+	}
 }
