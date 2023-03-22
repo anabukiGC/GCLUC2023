@@ -112,8 +112,17 @@ m_box = CAABB(CVector3D(-224 / 2 + 37, -224 + 64 + 82, -112), CVector3D(224 / 2 
 
 //TaskŽg—p	
 void XIwa::Update(float deltatime) {
+	m_time++;
 	static int move_speed = 10;
 	m_pos.x -= move_speed;
+	float ang;
+	CVector2D vec = CVector2D(m_pos.x, m_pos.y);
+	if (m_time > 1) {
+		ang = atan2(DtoR(sin(vec.x)), DtoR(vec.y));
+		m_img.SetAng(ang);
+		//m_img.Draw();
+		m_time = 0;
+	}
 	
 	//ObjectBase::Update(deltatime);
 	ObjectBase::Update(deltatime);

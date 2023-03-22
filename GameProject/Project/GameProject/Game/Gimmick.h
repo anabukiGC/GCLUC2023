@@ -35,6 +35,7 @@ public:
 //ObjectBaseédól
 class XIwa : public ObjectBase {
 public:
+	int m_time;
 public:
 	XIwa(const CVector3D& pos);
 	void Update(float deltatime);
