@@ -2,8 +2,9 @@
 
 class GimmickManager : public Task
 {
-	int m_time;
+	float m_time;
 	int m_time2;
+	int m_Itemtime;
 public:
 	GimmickManager();
 	void Update(float deletetime);

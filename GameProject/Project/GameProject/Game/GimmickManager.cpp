@@ -7,13 +7,17 @@
 GimmickManager::GimmickManager()
 	:Task((int)ETaskPrio::eGimmickManager,(int)ETaskTag::eGimmickManager)
 	,m_time(0)
+	, m_time2(0)
+	, m_Itemtime(0)
 {
 
 }
 
 void GimmickManager::Update(float deletetime) {
-	m_time++;
-	if (m_time > 120) {
+	if (GameData::Clear || GameData::life <= 0)return;
+	m_time += GameData::PXtoM(ObjectBase::m_scroll.x)/400+1;
+	
+	if (m_time > 240) {
 		int type = rand() % 4;
 		int htype = rand() % 3;
 		int ytype = rand() % 4;
@@ -78,7 +82,7 @@ void GimmickManager::Update(float deletetime) {
 					break;
 				case 3:
 					new YIwa(CVector3D(ObjectBase::m_scroll.x + x[xr], -800, z[r]));
-					new Ana(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], 0, z[(r + rz) % 3]));
+					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[(xr + rx) % 3], 0, az[(r + rz) % 3]));
 					break;
 				}
 				break;
@@ -137,7 +141,7 @@ void GimmickManager::Update(float deletetime) {
 					break;
 				case 3:
 					new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
-					new Ana(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], 0, z[(r + rz) % 3]));
+					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[(xr + rx) % 3], 0, az[(r + rz) % 3]));
 					break;
 				}
 				break;
@@ -322,7 +326,7 @@ void GimmickManager::Update(float deletetime) {
 						}
 						break;
 					}
-					new Ana(CVector3D(ObjectBase::m_scroll.x + x[(xr + rx) % 3], 0, z[(r + rz) % 3]));
+					new Ana(CVector3D(ObjectBase::m_scroll.x + ax[(xr + rx) % 3], 0, az[(r + rz) % 3]));
 					break;
 				}
 				break;
@@ -470,14 +474,25 @@ void GimmickManager::Update(float deletetime) {
 				new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
 			}
 			break;
-		/*case 4:
-			new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
-			break;*/
+		//case 4:
+		//	//new XIwa(CVector3D(ObjectBase::m_scroll.x + 1900, 0, xz[r]));
+		//	new Ana(CVector3D(ObjectBase::m_scroll.x + ax[axr], 0, az[azr]));
+		//	new Ana(CVector3D(ObjectBase::m_scroll.x + ax[(azr + rx) % 3], 0, az[(azr + rz) % 3]));
+		//	break;
 		}
 		m_time = 0;
+	}
+
+	m_Itemtime++;
+	if (m_Itemtime>=120) {
+		int jtype = rand() % 5;//•óÎ‚Ìí—Ş
+		int jr = rand() % 3;
+		int r = rand() % 3;
+		float z[3] = { 0,200,400 };
 		if (jr == 0) {
 			new Item(CVector3D(ObjectBase::m_scroll.x + 1350, 0, z[r]), jtype);
-		}	
+		}
+		m_Itemtime = 0;
 	}
 
 	m_time2++;

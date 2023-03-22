@@ -146,7 +146,7 @@ Ana::Ana(const CVector3D& pos) :ObjectBase((int)ETaskPrio::eFall, (int)ETaskTag:
 	//中心位置設定
 	m_img.SetCenter(415 / 2, 0);
 	//m_box = CAABB(CVector3D(340, -30, -600), CVector3D(400, 10, -400));
-	m_box = CAABB(CVector3D(340, -30, -600), CVector3D(341, 10, -410));
+	m_box = CAABB(CVector3D(340, -30, -600), CVector3D(341, 10, -410-34*2));
 }
 
 //Task使用	
