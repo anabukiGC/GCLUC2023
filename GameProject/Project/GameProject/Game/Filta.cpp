@@ -82,6 +82,7 @@ ClearFilta::~ClearFilta()
 
 void ClearFilta::Update(float deltatime)
 {
+	if(GameData::Max < GameData::score)
 	GameData::Max = GameData::score;
 }
 
@@ -131,6 +132,7 @@ OverFilta::~OverFilta()
 
 void OverFilta::Update(float deltatime)
 {
+	if (GameData::Max < GameData::score)
 	GameData::Max = GameData::score;
 }
 
