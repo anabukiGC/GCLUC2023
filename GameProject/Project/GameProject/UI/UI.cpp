@@ -29,15 +29,16 @@ void UI::Update(float Deletetime)
 {
 	m_m = GameData::PXtoM(ObjectBase::m_scroll.x);
 	m_score = GameData::score;
-	if (m_m >= 1000) {
+	if (m_m >= GameData::Goal) {
 		GameData::Clear = true;
 	}
 }
 
 void UI::Draw()
 {
-	m_title_text.Draw(1500, 100, 255, 255, 255, "%d m", m_m);
-	//m_title_text.Draw(1500, 200, 255, 255, 255, "sc.%d", m_score);
+	if (GameData::Clear == false) {
+		m_title_text.Draw(1500, 100, 255, 255, 255, "Žc‚è.%d m", GameData::Goal - m_m);
+	}
 	
 	if (GameData::life > 0 && GameData::Clear == false) {
 		m_title_text.Draw(1500, 200, 255, 255, 255, "sc.");
